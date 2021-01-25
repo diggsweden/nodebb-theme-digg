@@ -1,0 +1,26 @@
+.cookie-consent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: inherit;
+    padding: 32px;
+    background: rgba(244, 224, 206, .9);
+
+    @media (max-width: 550px) {
+        flex-direction: column;
+
+        .cookie-consent-text {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+    }
+
+    .cookie-consent-text {
+        max-width: 630px;
+        margin-right: 32px;
+    }
+
+    .btn-accept {
+        background-color: #2B2A29;
+    }
+}

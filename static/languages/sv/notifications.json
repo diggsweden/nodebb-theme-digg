@@ -1,0 +1,6 @@
+{
+    "notificationType_post-edit": "När ett inlägg som du följer redigeras",
+    "notificationType_new-group-chat": "När du får ett gruppmeddelande",
+    "notificationType_group-leave": "När en användare lämnar din grupp",
+    "notificationType_mention": "När någon nämner dig"
+}

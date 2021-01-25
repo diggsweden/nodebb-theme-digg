@@ -1,0 +1,10 @@
+{
+  "name": "nodebb-theme-digg",
+  "version": "0.0.1",
+  "description": "Digg nodeBB theme",
+  "main": "theme.less",
+  "keywords": [
+
+  ],
+  "license": "MIT"
+}

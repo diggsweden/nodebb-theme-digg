@@ -1,0 +1,12 @@
+{
+    "notifications": "Notiser",
+    "select_language": "Ange språk",
+    "consent.title": "Din information och rättigheter",
+    "consent.intro": "Vi använder denna information endast i syfte att personligt anpassa din upplevelse i denna gemenskap, och för att associera de inlägg du gör till ditt användarkonto. När du registrerade dig blev du ombedd att ange ett användarnamn och en e-postadress, du kan även frivilligt ange ytterligare information för att komplettera din användarprofil på denna webbsida. <br /><br />Vi sparar denna information så länge som du har ett konto hos oss, och du kan när som helst radera ditt konto. Du kan när som helst efterfråga en kopia av din information på denna webbplats, genom sidan Din information och rättigheter. <br /><br />Om du har några frågor eller funderingar rekommenderar vi att du tar kontakt med detta forums administrativa team, eller Myndigheten för digital förvaltning (<a href=\"https://digg.se\">www.digg.se</a>).",
+    "consent.formintro": "Vi använder denna information endast i syfte att personligt anpassa din upplevelse i denna gemenskap, och för att associera de inlägg du gör till ditt användarkonto, i enlighet med DIGG:s personuppgiftspolicy. När du registrerade dig blev du ombedd att ange ett användarnamn och en e-postadress, du kan även frivilligt ange ytterligare information för att komplettera din användarprofil på denna webbsida. <br /><br />Vi sparar denna information så länge som du har ett konto hos oss, och du kan när som helst radera ditt konto. Du kan när som helst efterfråga en kopia av din information på denna webbplats, genom sidan Din information och rättigheter. <br /><br />Om du har några frågor eller funderingar rekommenderar vi att du tar kontakt med detta forums administrativa team, eller Myndigheten för digital förvaltning (e-post: <a href=\"mailto:info@digg.se\">info@digg.se</a>).",
+    "consent.received": "Denna webbsida samlar in och behandlar din information.<br /><br />",
+    "consent.right_to_erasure": "Vi erbjuder borttagning",
+    "consent.right_to_erasure_description": "Du kan när som helst radera ditt konto. Din individuella profil kan raderas, men innehåll du lagt upp kommer bestå. Om du vill radera både din profil <strong>och</strong> ditt innehåll, vänligen kontakta Myndigheten för digital förvaltning (<a href=\"mailto:info@digg.se\">info@digg.se</a>) för en prövning.",
+    "consent.right_to_data_portability": "Vi erbjuder dataportabilitet",
+    "consent.export_profile": "Exportera profil (.json)"
+}

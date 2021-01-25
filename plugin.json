@@ -1,0 +1,24 @@
+{
+	"id": "nodebb-theme-digg",
+	"library": "./lib/theme.js",
+	"hooks": [
+		{
+			"hook": "filter:widgets.getAreas", "method": "defineWidgetAreas"
+		}
+	],
+	"scripts": [
+		"lib/client.js",
+		"../nodebb-theme-persona/public/persona.js",
+		"../nodebb-theme-persona/public/modules/nprogress.js",
+		"../nodebb-theme-persona/public/modules/autohidingnavbar.min.js",
+		"../nodebb-theme-persona/public/modules/quickreply.js",
+		"./public/digg.js"
+	],
+	"modules": {
+		"pulling.js": "node_modules/pulling/build/pulling-drawer.js"
+	},
+	"staticDirs": {
+        "images": "static/images"
+	},
+	"languages": "static/languages"
+}
