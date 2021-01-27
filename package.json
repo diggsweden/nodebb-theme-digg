@@ -1,10 +1,17 @@
 {
   "name": "nodebb-theme-digg",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Digg nodeBB theme",
   "main": "theme.less",
   "keywords": [
 
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "nbbpm": {
+    "compatibility": "^1.16.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DIGGSweden/nodebb-theme-digg.git"
+  }
 }

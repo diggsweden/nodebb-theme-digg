@@ -1,0 +1,11 @@
+{
+    "chat.scroll-up-alert": "Du tittar på äldre meddelanden, klicka här för att gå till det senaste meddelandet.",
+    "composer.zen_mode": "Zen-läge",
+    "composer.textarea.placeholder": "Fyll i ditt inläggs innehåll här, dra och släpp bilder",
+    "thumbs.modal.title": "Hantera ämnesminiatyrer",
+    "thumbs.modal.no-thumbs": "Inga miniatyrbilder hittades.",
+    "thumbs.modal.resize-note": "<strong>Obs</strong>: Detta forum är konfigurerat för att ändra storlek på ämnesminiatyrer till en maximal bredd på %1px",
+    "thumbs.modal.add": "Lägg till miniatyrbild",
+    "thumbs.modal.remove": "Radera miniatyrbild",
+    "thumbs.modal.confirm-remove": "Är du säker på att du vill ta bort den här miniatyrbilden?"
+}

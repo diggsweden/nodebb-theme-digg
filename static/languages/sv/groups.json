@@ -1,0 +1,4 @@
+{
+	"details.member-post-cids": "Kategori att visa inlägg ifrån",
+	"details.member-post-cids-help": "<strong>Obs:</strong> Om ingen kategori är vald antas att alla kategorier ingår. Använd <code> ctrl </code> och <code> shift </code> för att välja flera alternativ."
+}

@@ -1,0 +1,34 @@
+{
+	"reports": "Rapporter",
+	"first-reported": "Först rapporterad",
+
+	"more-filters": "Fler filter",
+
+	"quick-actions": "Snabbåtgärder",
+	"assign-to-me": "Tilldela mig",
+	"delete-post": "Radera inlägg",
+	"purge-post": "Rensa inlägg",
+	"restore-post": "Återställ inlägg",
+
+	"delete-note-confirm": "Är du säker på att du vill radera flaggans notering?",
+	"note-deleted": "Notering raderad",
+
+	"history": "Konto &amp; flagghistorik",
+
+	"sort": "Sortera efter",
+	"sort-newest": "Nyast först",
+	"sort-oldest": "Äldst först",
+	"sort-reports": "Fler rapporter",
+	"sort-all": "Alla typer av flaggor...",
+	"sort-posts-only": "Inlägg endast...",
+	"sort-downvotes": "Flest nedröstade",
+	"sort-upvotes": "Flest uppröstade",
+	"sort-replies": "Flest svar",
+
+	"modal-title": "Rapportens innehåll",
+
+	"bulk-actions": "Massåtgärder",
+	"bulk-resolve": "Lösta flaggor",
+	"bulk-success": "%1 flaggor uppdaterade",
+	"flagged-timeago-readable": "Flaggad <span class=\"timeago\" title=\"%1\"></span> (%2)"
+}

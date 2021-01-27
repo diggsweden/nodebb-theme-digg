@@ -1,0 +1,15 @@
+{
+    "password-reset-requested": "Begäran om att återställa lösenord!",
+    "invitation.cta": "Klicka här för att skapa ditt konto.",
+    "digest.title.day": "Din dagliga Digest",
+    "digest.title.week": "Din veckovisa Digest",
+    "digest.title.month": "Din månatliga Digest",
+    "notif.post.unsub.one-click": "Alternativt, sluta prenumerera på framtida e-post som detta, genom att klicka",
+    "notif.cta": "Till communityt",
+    "notif.cta-new-reply": "Se inlägg",
+    "notif.cta-new-chat": "Se chatt",
+    "notif.test.short": "Test av notiser",
+    "notif.test.long": "Detta är ett test av e-postmeddelande. Skicka hjälp!",
+    "unsubscribe": "Sluta prenumerera",
+    "unsub.success": "Du kommer inte längre att få e-post från <strong>%1</strong>-listan"
+}

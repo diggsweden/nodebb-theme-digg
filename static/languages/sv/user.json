@@ -1,4 +1,12 @@
 {
+    "delete_account": "Radera användare",
+    "delete_account_as_admin": "Radera <strong>konto</strong>",
+    "delete_content": "Radera kontots <strong>innehåll</strong>",
+    "delete_all": "Radera <strong>konto</strong> och <strong>innehåll</strong>",
+    "delete_account_confirm": "Är du säker på att du vill anonymisera dina inlägg och ta bort ditt konto?<br /><strong>Den här åtgärden är oåterkallelig och du kommer inte att kunna återställa något av dina data</strong><br /><br />Ange ditt lösenord för att bekräfta att du vill radera detta konto.",
+    "delete_this_account_confirm": "Är du säker på att du vill ta bort det här kontot medan du lämnar innehållet?<br /><strong>Denna åtgärd är oåterkallelig, inlägg anonymiseras och du kommer inte att kunna återställa inläggsassociationer med det raderade kontot</strong><br /><br />",
+    "delete_account_content_confirm": "Är du säker på att du vill ta bort kontots innehåll (inlägg/ämnen/uppladdningar)? <br /><strong>Den här åtgärden är oåterkallelig och du kommer inte att kunna återställa någon data</strong><br /><br />",
+    "delete_all_confirm": "Är du säker på att du vill ta bort det här kontot och allt dess innehåll (inlägg/ämnen/uppladdningar)? <br /><strong>Den här åtgärden är oåterkallelig och du kommer inte att kunna återställa någon data</strong><br /><br />",
     "notifications": "Notiser",
     "select_language": "Ange språk",
     "consent.title": "Din information och rättigheter",
