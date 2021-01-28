@@ -1,7 +1,7 @@
 {
     "invalid-date": "A valid date must be provided",
     "email-invited": "E-postadressen redan inbjuden",
-    "email-not-confirmed-email-sent": "Din e-postadress har inte bekräftats ännu. Kontrollera din e-post för att kunna bekräfta den. Du kommer inte att kunna posta eller chatta förrän din e-post har bekräftats.",
+    "email-not-confirmed-email-sent": "Din e-postadress har inte bekräftats ännu. Kontrollera din e-post för att kunna bekräfta den. Du kommer inte att kunna posta förrän din e-post har bekräftats. Om du inte ser något e-postmeddelande, kontrollera spam/skräp-korgen",
     "digest-not-enabled": "Denna användare har inte digests påslaget, eller så är inte systemet konfigurerat för att skicka digests",
     "reset-rate-limited": "För många förfrågningar om att återställa lösenordet",
     "reset-same-password": "Använd ett lösenord som inte är samma som nuvarande lösenord",

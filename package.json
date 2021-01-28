@@ -1,17 +1,25 @@
 {
   "name": "nodebb-theme-digg",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Digg nodeBB theme",
   "main": "theme.less",
+  "bundleDependencies": false,
+  "dependencies": {
+    "pulling": "^2.0.0",
+    "striptags": "^3.1.1"
+  },
+  "deprecated": false,
   "keywords": [
-
+    "nodebb",
+    "theme",
+    "community"
   ],
-  "license": "MIT",
   "nbbpm": {
     "compatibility": "^1.16.0"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DIGGSweden/nodebb-theme-digg.git"
-  }
+  },
+  "license": "GNUv3"
 }

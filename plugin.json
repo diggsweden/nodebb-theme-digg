@@ -9,7 +9,6 @@
 	"scripts": [
 		"lib/client.js",
 		"../nodebb-theme-persona/public/persona.js",
-		"../nodebb-theme-persona/public/modules/nprogress.js",
 		"../nodebb-theme-persona/public/modules/autohidingnavbar.min.js",
 		"../nodebb-theme-persona/public/modules/quickreply.js",
 		"./public/digg.js"
@@ -20,5 +19,8 @@
 	"staticDirs": {
         "images": "static/images"
 	},
+	"acpScripts": [
+		"../nodebb-theme-persona/public/admin.js"
+	],
 	"languages": "static/languages"
 }

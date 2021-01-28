@@ -2,5 +2,6 @@
     "id": "nodebb-theme-digg",
     "name": "Digg",
     "description": "Digg nodeBB theme",
-    "url": "https://github.com/nodebb/nodebb-theme-quickstart"
+    "url": "https://github.com/DIGGSweden/nodebb-theme-digg",
+    "screenshot": "screenshot.png"
 }
