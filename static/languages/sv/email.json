@@ -11,5 +11,7 @@
     "notif.test.short": "Test av notiser",
     "notif.test.long": "Detta är ett test av e-postmeddelande. Skicka hjälp!",
     "unsubscribe": "Sluta prenumerera",
-    "unsub.success": "Du kommer inte längre att få e-post från <strong>%1</strong>-listan"
+    "unsub.success": "Du kommer inte längre att få e-post från <strong>%1</strong>-listan",
+    "welcome.text2": "Om du fått detta mail, men inte känner igen att du gjort någonting kopplat till Sveriges dataportals community, kan du bortse från mailet. <br>För att slutföra aktiveringen av ditt konto, behöver vi verifiera att du har tillgång till den e-postadress du registrerade dig med.",
+    "reset.text1": "Om du fått detta mail, men inte känner igen att du gjort någonting kopplat till Sveriges dataportals community, kan du bortse från mailet. Vi fick en förfrågan om att återställa ditt lösenord, möjligen för att du har glömt det. Om detta inte är fallet, så kan du bortse från det här epostmeddelandet. "
 }
