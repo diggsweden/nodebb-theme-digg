@@ -1,4 +1,4 @@
-const focusableElements = 'a[href]:not([disabled]), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
+const focusableElements = 'a[href]:not([disabled]):not(.hidden), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
 
 // Skips all menu items and sets focus on first focusable element in main
 $('.skip-to-content').on('click', ev => {
@@ -50,6 +50,14 @@ $('#user_label').keypress(e => {
 $('main').on('click', ev => {
     $('html').hasClass('slideout-open') && clickOutside($('#menu')[0]);
 });
+
+function trapElements() {
+    const elements = $("html").find(`[data-trapfocus]`);
+    // Trap focus on all elements with data-focustrap
+    elements.each((index, el) => {
+        trapFocus(el);
+    });
+}
 
 /**
  * Fix so you cannot tab inside mobile menus in desktop
@@ -129,3 +137,4 @@ function trapFocus(element) {
 
 // Initialize css display on menus
 setDisplayOnMobileMenus();
+trapElements();
