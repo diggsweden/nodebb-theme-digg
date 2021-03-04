@@ -46,7 +46,7 @@ $('#user_label').keypress(e => {
     }
 });
 
-// Force a display reset on menu if its hidden with click outside
+// Force a display reset on menu if its closed with click outside
 $('main').on('click', ev => {
     $('html').hasClass('slideout-open') && clickOutside($('#menu')[0]);
 });
