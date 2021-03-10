@@ -46,6 +46,15 @@ $('#user_label').keypress(e => {
     }
 });
 
+$("#new_topic").keypress(e => {
+    var key = e.which;
+    if (key == 13)  // the enter key code
+    {
+        console.log('i am clicked')
+        $("#new_topic").click();
+    }
+})
+
 // Force a display reset on menu if its closed with click outside
 $('main').on('click', ev => {
     $('html').hasClass('slideout-open') && clickOutside($('#menu')[0]);
