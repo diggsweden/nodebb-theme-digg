@@ -1,4 +1,5 @@
 {
+    "email-confirm-error-message": "Det kan ha att göra med att aktiveringssidan laddades om och då är allt som det ska ändå. Testa om du kan skapa ett inlägg eller svara på ett. Om det inte fungerar <a href=\"info@digg.se\">kontakta info@digg.se</a>",
     "notificationType_post-edit": "När ett inlägg som du följer redigeras",
     "notificationType_new-group-chat": "När du får ett gruppmeddelande",
     "notificationType_group-leave": "När en användare lämnar din grupp",

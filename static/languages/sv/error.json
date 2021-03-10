@@ -1,4 +1,5 @@
 {
+    "invalid-data": "Det uppstod ett problem",
     "invalid-date": "A valid date must be provided",
     "email-invited": "E-postadressen redan inbjuden",
     "email-not-confirmed-email-sent": "Din e-postadress har inte bekräftats ännu. Kontrollera din e-post för att kunna bekräfta den. Du kommer inte att kunna posta förrän din e-post har bekräftats. Om du inte ser något e-postmeddelande, kontrollera spam/skräp-korgen",
