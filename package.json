@@ -1,6 +1,6 @@
 {
   "name": "nodebb-theme-digg",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Digg nodeBB theme",
   "main": "theme.less",
   "bundleDependencies": false,
