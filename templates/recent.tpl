@@ -24,7 +24,7 @@
 					class="visible-xs-inline"><i class="fa fa-fw {selectedFilter.icon}"></i></span> <span
 					class="caret"></span>
 			</button>
-			<ul class="dropdown-menu" role="menu">
+			<ul data-trapfocus class="dropdown-menu" role="menu">
 				{{{each filters}}}
 				<li role="presentation" class="category {{{if filters.selected}}}selected{{{end}}}">
 						<a role="menu-item" href="{config.relative_path}/{filters.url}"><i
