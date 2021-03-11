@@ -50,7 +50,6 @@ $("#new_topic").keypress(e => {
     var key = e.which;
     if (key == 13)  // the enter key code
     {
-        console.log('i am clicked')
         $("#new_topic").click();
     }
 })
@@ -59,6 +58,17 @@ $("#new_topic").keypress(e => {
 $('main').on('click', ev => {
     $('html').hasClass('slideout-open') && clickOutside($('#menu')[0]);
 });
+
+function clickOnEnterPress() {
+    const elements = $("html").find(`[data-keypress-enter]`);
+    elements && $(elements).each((index, el) => {
+        $(el).keypress(e => {
+            if (e.which == 13) {
+                el.click();
+            }
+        })
+    })
+}
 
 function trapElements() {
     const elements = $("html").find(`[data-trapfocus]`);
@@ -147,3 +157,4 @@ function trapFocus(element) {
 // Initialize css display on menus
 setDisplayOnMobileMenus();
 trapElements();
+clickOnEnterPress();
