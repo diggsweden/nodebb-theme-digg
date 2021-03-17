@@ -59,6 +59,83 @@ $('main').on('click', ev => {
     $('html').hasClass('slideout-open') && clickOutside($('#menu')[0]);
 });
 
+/**
+ * Make tabbing accessible in the composer
+ */
+$("#new_topic").on("click", e => {
+    setTimeout(() => { // Timeout effects are used to wait for components to mount
+
+        const composer = $("[component=composer]");
+        if (!composer[0]) {
+            return;
+        }
+
+        setTimeout(() => {
+            const focusable = composer.find('button:not(.btn-sm), textarea, input[type="text"]:not(".tags")');
+            const dropDown = composer.find('.dropdown-toggle');
+            const input = composer.find('.title, .write, .ui-autocomplete-input');
+            const discard = $('.composer-discard');
+
+            // Make the helptext in the editor tabbable
+            const help = composer.find(".help"); 
+            if (help[0]) {
+                help[0].tabIndex = 0;
+                $(help).keypress(e => {
+                    var key = e.which;
+                    if (key == 13)  // the enter key code
+                    {
+                        $(help).click();
+                    }
+                })
+            }
+
+            //focus the "New topic"-button when the editor i closed
+            $(composer).keydown(e => {
+                var key = e.which;
+                if (key == 27)  // the escape key code
+                {
+                    $("#new_topic").focus();
+                }
+            })
+ 
+            // Trap focus inside the composer
+            trapFocus(composer[0], focusable);
+            focusable.each((i, el) => {
+                el.tabIndex = 0;
+            })
+
+            // Fix issue that the body-element is focus when escape is pressed on input-fields
+           input.each((i, el) => {
+                $(el).on("keydown blur", e => {
+                    setTimeout(() => {
+                        const isBodyActive = document.activeElement.tagName == "BODY";
+                        isBodyActive && discard.focus();
+                    }, 10);
+                })
+            })
+
+            // Make the category-dropdown menu accessible with tabbing
+            $(dropDown[0]).on("click", e => {
+                setTimeout(() => {
+                    const ddMenu = composer.find(".category-dropdown-menu");
+                    const ddFocusable = ddMenu.find("a");
+                    ddFocusable.splice(0, 1);
+                    if (!ddFocusable[0]) {
+                        return;
+                    }
+                    ddFocusable.each((i, el) => {
+                        el.tabIndex = 0;
+                        el.href = "#";
+                        i == 0 && el.focus();
+                    })
+                    trapFocus(ddMenu[0], ddFocusable, $("#new_topic")[0]);
+
+                }, 300);
+            })
+        }, 100);
+    }, 100);
+})
+
 function clickOnEnterPress() {
     const elements = $("html").find(`[data-keypress-enter]`);
     elements && $(elements).each((index, el) => {
@@ -105,9 +182,10 @@ function skipToElement(element, setTabIndex = false) {
  *
  * @param {*} element click the parent of this element
  */
-function clickOutside(element) {
+function clickOutside(element, nextToFocus) {
     const parent = element.parentElement;
     parent ? parent.click() : console.log('click outside failed');
+    nextToFocus && nextToFocus.focus();
     parent && setTimeout(() => {
         setDisplayOnMobileMenus();
     }, 250);
@@ -119,8 +197,8 @@ function clickOutside(element) {
  *
  * @param {*} element trap focus here
  */
-function trapFocus(element) {
-    const focusable = element.querySelectorAll(focusableElements);
+function trapFocus(element, focusableEl, nextToFocus) {
+    const focusable = focusableEl ? focusableEl : element.querySelectorAll(focusableElements);
     const firstFocusable = focusable[0];
     const lastFocusable = focusable[focusable.length - 1];
     const KEYCODE_TAB = 9;
@@ -130,7 +208,7 @@ function trapFocus(element) {
         const tabPressed = (e.key === 'Tab' || e.keyCode === KEYCODE_TAB);
         const escapePressed = (e.key === 'Escape' || e.keyCode === KEYCODE_ESCAPE);
 
-        escapePressed && clickOutside(element);
+        escapePressed && clickOutside(element, nextToFocus);
 
         if (!tabPressed) {
             return;
