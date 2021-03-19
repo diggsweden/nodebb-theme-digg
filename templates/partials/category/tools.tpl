@@ -42,13 +42,13 @@
 		</li>
 		{{{if template.category}}}
 		<li>
-			<a component="topic/move-all" href="#">
+			<a data-openmodal component="topic/move-all" href="#">
 				<i class="fa fa-fw fa-arrows"></i> [[topic:thread_tools.move_all]]
 			</a>
 		</li>
 		{{{end}}}
 		<li>
-			<a component="topic/merge" href="#">
+			<a data-openpanel component="topic/merge" href="#">
 				<i class="fa fa-fw fa-code-fork"></i> [[topic:thread_tools.merge]]
 			</a>
 		</li>

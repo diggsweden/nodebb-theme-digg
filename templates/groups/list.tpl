@@ -8,7 +8,7 @@
 	<div class="row">
 		<div class="col-lg-4">
 			<!-- IF allowGroupCreation -->
-			<button class="btn btn-primary" data-action="new"><i class="fa fa-plus"></i> [[groups:new_group]]</button>
+			<button data-openmodal class="btn btn-primary" data-action="new"><i class="fa fa-plus"></i> [[groups:new_group]]</button>
 			<!-- ENDIF allowGroupCreation -->
 		</div>
 		<div class="col-lg-8">
