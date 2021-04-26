@@ -1,17 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
 
 body {
-    padding-top: 0;
-    font-family: 'Ubuntu', sans-serif;
+    padding-top     : 0;
+    font-family     : 'Ubuntu', sans-serif;
     background-color: @background-color-grey;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
     font-family: 'Ubuntu', sans-serif;
 }
 
 a {
-    color: black;
+    color          : black;
     text-decoration: underline;
 
     &:hover {
@@ -19,7 +30,7 @@ a {
     }
 }
 
-li.row:not(:last-child) { 
+li.row:not(:last-child) {
     border-bottom: 1px dashed #949494;
 }
 
@@ -28,11 +39,19 @@ li.row:not(:last-child) {
 }
 
 .composer .resizer .trigger i {
-    background-color: @button-primary-background !important;
-    border-color: @button-primary-background !important;
+    background-color: @button-primary-background  !important;
+    border-color    : @button-primary-background  !important;
 }
 
-html a:focus, html button:focus, html input:focus, html input[type=radio]:focus, html select:focus, html textarea:focus {
-    outline: 3px dotted #2b2a29!important;
+html a:focus,
+html button:focus,
+html input:focus,
+html input[type=radio]:focus,
+html select:focus,
+html textarea:focus,
+.focusable:focus,
+#new_topic:focus,
+.help:focus {
+    outline          : 3px dotted #2b2a29 !important;
     // outline-offset: 3px!important;
 }

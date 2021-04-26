@@ -22,13 +22,8 @@
 </head>
 
 <body class="{bodyClass} skin-<!-- IF bootswatchSkin -->{bootswatchSkin}<!-- ELSE -->noskin<!-- END -->">
+
 	<button class="skip-to-content">Till innehållet</button>
-	<nav id="menu" class="slideout-menu hidden">
-		<!-- IMPORT partials/slideout-menu.tpl -->
-	</nav>
-	<nav id="chats-menu" class="slideout-menu hidden">
-		<!-- IMPORT partials/chats-menu.tpl -->
-	</nav>
 
 	<main id="panel" class="slideout-panel">
         <div class="container">
@@ -56,6 +51,12 @@
 				<div class="container">
 					<!-- IMPORT partials/menu.tpl -->
 				</div>
+			</nav>
+			<nav id="menu" class="slideout-menu hidden">
+				<!-- IMPORT partials/slideout-menu.tpl -->
+			</nav>
+			<nav id="chats-menu" class="slideout-menu hidden">
+				<!-- IMPORT partials/chats-menu.tpl -->
 			</nav>
         </div>
         
