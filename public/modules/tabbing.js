@@ -1,12 +1,23 @@
 /**
- * Makes tabbing accessible throughout the whole website
+ * Makes tabbing accessible across the site
+ * 
+ * *Tip! Install https://marketplace.visualstudio.com/items?itemName=maptz.regionfolder
+ * *for folding regions of code since this file contains lots of code
+ *
+ * ?Also useful: https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments
  */
+
 define([], () => {
     "use-strict";
     return () => {
+
+        /* #region variables */
         const focusableElements = 'a[href]:not([disabled]):not(.hidden), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
         const panelTriggers = $("[data-openpanel]");
         const modalTriggers = $("[data-openmodal]");
+        /* #endregion */
+
+        /* #region DOM-callers */
 
         // Handle modal when a modal-trigger is clicked
         modalTriggers.each((i, el) => {
@@ -136,10 +147,12 @@ define([], () => {
                 })
             }, 200);
         })
+        /* #endregion */
+
+        /* #region functions */
 
         /**
          * Skips to the first focuable element in the main section
-         * @returns 
          */
         function skipToContent() {
             let content = $('#content');
@@ -273,10 +286,10 @@ define([], () => {
         }
 
         /**
-     * Programatically click on the parent of a given element
-     *
-     * @param {*} element click the parent of this element
-     */
+         * Programatically click on the parent of a given element
+         *
+         * @param {*} element click the parent of this element
+         */
         function clickOutside(element, nextToFocus, skipToMainContent) {
             const parent = element.parentElement;
             parent ? parent.click() : console.log('click outside failed');
@@ -390,7 +403,9 @@ define([], () => {
                 }, 300);
             })
         }
+        /* #endregion */
 
+        // Init
         setDisplayOnMobileMenus();
         trapElements();
         clickOnEnterPress();
