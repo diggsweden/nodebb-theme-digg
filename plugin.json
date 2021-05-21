@@ -14,7 +14,8 @@
 		"./public/digg.js"
 	],
 	"modules": {
-		"pulling.js": "node_modules/pulling/build/pulling-drawer.js"
+		"pulling.js": "node_modules/pulling/build/pulling-drawer.js",
+		"tabbing.js": "public/modules/tabbing.js"
 	},
 	"staticDirs": {
         "images": "static/images"
