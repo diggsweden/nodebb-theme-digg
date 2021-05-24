@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap');
+@import "./mixins";
 
 body {
     padding-top     : 0;
@@ -52,6 +53,6 @@ html textarea:focus,
 .focusable:focus,
 #new_topic:focus,
 .help:focus {
-    outline          : 3px dotted #2b2a29 !important;
+    .dotted-focus;
     // outline-offset: 3px!important;
 }
