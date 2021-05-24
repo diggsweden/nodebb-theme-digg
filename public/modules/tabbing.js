@@ -363,6 +363,12 @@ define([], () => {
 
                 // If there are items that needs to outline parent to have a visible focus
                 OutlineParent();
+
+                // Reinstance clickOnEnterPress for modal
+                const keypressEnterClick = $(`[data-keypress-enter]`);
+                keypressEnterClick.each((i, el) => {
+                    clickOnEnterPress(el);
+                });
             }, 200);
         }
 
