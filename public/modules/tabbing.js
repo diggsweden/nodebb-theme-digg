@@ -77,6 +77,7 @@ define([], () => {
                 trapFocus(userControls[0]);
                 skipToElement(userControls[0].querySelectorAll(focusableElements));
             }
+            $('#user_label').unbind();
         });
 
         // Trap focus in modal
