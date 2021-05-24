@@ -20,10 +20,10 @@
 						<ul class="block-edit list-group">
 							{{{ each edit }}}
 							<li class="list-group-item clearfix">
-                                <div class="">
+                                <div class="pull-left">
                                     <a href="{config.relative_path}/uid/{../uid}">{buildAvatar(edit, "sm", true)} {../username}</a>
                                 </div>
-								<button class="btn btn-sm btn-primary" data-uid="{../uid}" data-action="toggle">[[user:block_toggle]]</button>
+								<button class="btn btn-sm btn-primary pull-right" data-uid="{../uid}" data-action="toggle">[[user:block_toggle]]</button>
 							</li>
 							{{{ end }}}
 						</ul>
