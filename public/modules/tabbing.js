@@ -15,6 +15,9 @@ define([], () => {
         const focusableElements = 'a[href]:not([disabled]):not(.hidden), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
         const panelTriggers = $("[data-openpanel]");
         const modalTriggers = $("[data-openmodal]");
+        const makeKeypressEnterClick = $(`[data-keypress-enter]`);
+        const makeFocusTrap = $(`[data-trapfocus]`);
+        console.log(makeKeypressEnterClick)
         /* #endregion */
 
         /* #region DOM-callers */
@@ -32,6 +35,16 @@ define([], () => {
                 handlePanel();
             })
         })
+
+        // Make a click when pressing enter-key on these elements
+        makeKeypressEnterClick.each((i, el) => {
+            clickOnEnterPress(el);
+        })
+
+        // Traps the focus within a range of elements
+        makeFocusTrap.each((index, el) => {
+            trapFocus(el);
+        });
 
         // Skips all menu items and sets focus on first focusable element in main
         $('.skip-to-content').on('click', ev => {
@@ -147,6 +160,7 @@ define([], () => {
                 })
             }, 200);
         })
+
         /* #endregion */
 
         /* #region functions */
@@ -241,27 +255,13 @@ define([], () => {
         /**
          * Makes clickable elements accessible with enter key
          */
-        function clickOnEnterPress() {
-            const elements = $("html").find(`[data-keypress-enter]`);
-            elements && $(elements).each((index, el) => {
-                $(el).keypress(e => {
-                    if (e.which == 13) {
-                        el.click();
-                    }
-                })
+        function clickOnEnterPress(el) {
+            $(el).keypress(e => {
+                console.log("pressing enter...")
+                if (e.which == 13) {
+                    el.click();
+                }
             })
-        }
-
-
-        /**
-         * Traps the focus within a range of elements
-         */
-        function trapElements() {
-            const elements = $("html").find(`[data-trapfocus]`);
-            // Trap focus on all elements with data-focustrap
-            elements.each((index, el) => {
-                trapFocus(el);
-            });
         }
 
         /**
@@ -405,9 +405,7 @@ define([], () => {
         }
         /* #endregion */
 
-        // Init
+        // Inits
         setDisplayOnMobileMenus();
-        trapElements();
-        clickOnEnterPress();
     }
 })
