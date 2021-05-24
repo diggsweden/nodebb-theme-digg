@@ -360,6 +360,9 @@ define([], () => {
                         handleComposer();
                     }, 100);
                 })
+
+                // If there are items that needs to outline parent to have a visible focus
+                OutlineParent();
             }, 200);
         }
 
@@ -406,6 +409,17 @@ define([], () => {
                     trapFocus(ddMenu[0], ddFocusable, toFocusOnClose, skipToMainContent);
                 }, 300);
             })
+        }
+
+        // Set focus outline on parent instead of focusable child
+        function OutlineParent() {
+            $('[data-outlineparent] > *')
+                .focus(function () {
+                    $(this).closest("[data-outlineparent]").addClass('focused');
+                })
+                .blur(function () {
+                    $(this).closest("[data-outlineparent]").removeClass('focused');
+                });
         }
         /* #endregion */
 
