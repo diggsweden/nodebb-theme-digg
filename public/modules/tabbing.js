@@ -17,7 +17,6 @@ define([], () => {
         const modalTriggers = $("[data-openmodal]");
         const makeKeypressEnterClick = $(`[data-keypress-enter]`);
         const makeFocusTrap = $(`[data-trapfocus]`);
-        console.log(makeKeypressEnterClick)
         /* #endregion */
 
         /* #region DOM-callers */
@@ -115,7 +114,6 @@ define([], () => {
                 const threadTools = $("#thread_tools");
                 const threadModalTriggers = threadTools.find("a[component='topic/move'], a[component='topic/delete'], a[component='topic/pin']");
                 const threadPanelTriggers = threadTools.find("a[component='topic/fork'], a[component='topic/move-posts'], a[component='topic/delete/posts']")
-                console.log(threadModalTriggers);
                 threadModalTriggers.each((i, el) => {
                     $(el).on("click", e => {
                         handleModal();
@@ -142,7 +140,6 @@ define([], () => {
                 focusable.each((i, el) => {
                     el.tabIndex = 0;
                 })
-                console.log(postModalTriggers);
                 postModalTriggers.each((i, el) => {
                     $(el).on("click", e => {
                         handleModal();
@@ -257,7 +254,6 @@ define([], () => {
          */
         function clickOnEnterPress(el) {
             $(el).keypress(e => {
-                console.log("pressing enter...")
                 if (e.which == 13) {
                     el.click();
                 }
@@ -356,6 +352,13 @@ define([], () => {
 
                 const dropDown = modalContent.find(".dropdown-toggle");
                 makeDropDownTabbable(dropDown, modalContent, false, true)
+
+                // Handle composer if closing a modal opens the composer (ex if you a reply a topic that is old)
+                $(focusable).on("click", () => {
+                    setTimeout(() => {
+                        handleComposer();
+                    }, 100);
+                })
             }, 200);
         }
 
