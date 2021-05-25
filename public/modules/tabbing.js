@@ -347,9 +347,9 @@ define([], () => {
                     return;
                 }
 
-                const focusable = modalContent.find('a[href]:not(.hidden), button, select');
+                const focusable = modalContent.find('a[href]:not(.hidden), button, select, input');
                 trapFocus(modalContent[0], focusable, false, true);
-                focusable[0] && focusable[0].focus();
+                focusable[1] && focusable[1].focus();
 
                 const dropDown = modalContent.find(".dropdown-toggle");
                 makeDropDownTabbable(dropDown, modalContent, false, true)
@@ -369,7 +369,7 @@ define([], () => {
                 keypressEnterClick.each((i, el) => {
                     clickOnEnterPress(el);
                 });
-            }, 200);
+            }, 500);
         }
 
 
