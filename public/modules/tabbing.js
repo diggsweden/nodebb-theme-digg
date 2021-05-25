@@ -10,40 +10,13 @@
 define([], () => {
     "use-strict";
     return () => {
-
+        
         /* #region variables */
         const focusableElements = 'a[href]:not([disabled]):not(.hidden), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
-        const panelTriggers = $("[data-openpanel]");
-        const modalTriggers = $("[data-openmodal]");
-        const makeKeypressEnterClick = $(`[data-keypress-enter]`);
-        const makeFocusTrap = $(`[data-trapfocus]`);
+        const userControls = $('#user-control-list');
         /* #endregion */
 
         /* #region DOM-callers */
-
-        // Handle modal when a modal-trigger is clicked
-        modalTriggers.each((i, el) => {
-            $(el).on("click", e => {
-                handleModal();
-            })
-        })
-
-        // Handle panel when a panel-trigger is clicked
-        panelTriggers.each((i, el) => {
-            $(el).on("click", e => {
-                handlePanel();
-            })
-        })
-
-        // Make a click when pressing enter-key on these elements
-        makeKeypressEnterClick.each((i, el) => {
-            clickOnEnterPress(el);
-        })
-
-        // Traps the focus within a range of elements
-        makeFocusTrap.each((index, el) => {
-            trapFocus(el);
-        });
 
         // Skips all menu items and sets focus on first focusable element in main
         $('.skip-to-content').on('click', ev => {
@@ -69,16 +42,16 @@ define([], () => {
 
         // Make the user menu accessible with enter key and traps focus
         $('#user_label').keypress(e => {
-            var key = e.which;
+            const key = e.which;
             if (key == 13)  // the enter key code
             {
                 $('#user_dropdown').click();
-                const userControls = $('#user-control-list');
-                trapFocus(userControls[0]);
                 skipToElement(userControls[0].querySelectorAll(focusableElements));
             }
             $('#user_label').unbind();
         });
+
+        $("#userlabee")
 
         // Trap focus in modal
         $("deleteAccountBtn").on("click", () => {
@@ -92,6 +65,10 @@ define([], () => {
             {
                 $("#new_topic").click();
             }
+        });
+
+        $("#postToolsTrigger").on("click", () => {
+            SetHandlers();
         })
 
         // Force a display reset on menu if its closed with click outside
@@ -104,10 +81,7 @@ define([], () => {
             handleComposer();
         })
 
-        // Handle composer when element is clicked
-        $("[data-handlecomposer]").on("click", e => {
-            handleComposer();
-        })
+
 
         // Trap focus and handle both panels and modals
         $("#thread_tools_button").on("click", e => {
@@ -305,6 +279,7 @@ define([], () => {
             const firstFocusable = focusable[0];
             const lastFocusable = focusable[focusable.length - 1];
             const secondToLast = focusable[focusable.length - 2];
+            const thirdToLast = focusable[focusable.length - 3];
             const KEYCODE_TAB = 9;
             const KEYCODE_ESCAPE = 27;
 
@@ -328,7 +303,9 @@ define([], () => {
                         e.preventDefault();
                     }
                 } else /* tab */ {
-                    if (document.activeElement === lastFocusable || (lastFocusable?.disabled && document.activeElement === secondToLast)) {
+                    if (document.activeElement === lastFocusable ||
+                        (lastFocusable?.disabled && document.activeElement === secondToLast) ||
+                        (lastFocusable?.disabled && secondToLast?.disabled && document.activeElement === thirdToLast)) {
                         firstFocusable.focus();
                         e.preventDefault();
                     }
@@ -349,7 +326,7 @@ define([], () => {
 
                 const focusable = modalContent.find('a[href]:not(.hidden), button, select, input');
                 trapFocus(modalContent[0], focusable, false, true);
-                focusable[1] && focusable[1].focus();
+                focusable[1] ? focusable[1].focus() : focusable[0]?.focus();
 
                 const dropDown = modalContent.find(".dropdown-toggle");
                 makeDropDownTabbable(dropDown, modalContent, false, true)
@@ -427,9 +404,40 @@ define([], () => {
                     $(this).closest("[data-outlineparent]").removeClass('focused');
                 });
         }
+
+        function SetHandlers() {
+            setTimeout(() => {
+                // Handle modal when a modal-trigger is clicked
+                $("[data-openmodal]").on("click", () => {
+                    handleModal();
+                });
+
+                // Handle panel when a panel-trigger is clicked
+                $("[data-openpanel").on("click", () => {
+                    handlePanel();
+                });
+
+                // Make a click when pressing enter-key on these elements
+                $("[data-keypress-enter]").each((i, el) => {
+                    clickOnEnterPress(el);
+                });
+
+                // Traps the focus within a range of elements
+                $("[data-trapfocus]").each((i, el) => {
+                    trapFocus(el);
+                });
+
+                // Handle composer when element is clicked
+                $("[data-handlecomposer]").on("click", e => {
+                    handleComposer();
+                });
+            }, 150);
+        }
         /* #endregion */
 
         // Inits
         setDisplayOnMobileMenus();
+        SetHandlers();
+        trapFocus(userControls[0]);
     }
 })
