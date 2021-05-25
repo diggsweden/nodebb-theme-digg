@@ -33,9 +33,7 @@ define([], () => {
 
             $(".slideout-panel").on("click", e => {
                 setTimeout(() => {
-                const menuOpen = $('html').hasClass('slideout-open');
                     setDisplayOnMobileMenus();
-                    !menuOpen && skipToContent();
                 }, 500);
             });
         });
