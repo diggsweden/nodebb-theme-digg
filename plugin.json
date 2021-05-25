@@ -14,6 +14,7 @@
 	],
 	"modules": {
 		"pulling.js": "node_modules/pulling/build/pulling-drawer.js",
+		"utils.js": "public/modules/utils.js",
 		"tabbing.js": "public/modules/tabbing.js"
 	},
 	"staticDirs": {
