@@ -17,7 +17,6 @@
 </ol>
 <!-- ELSE -->
 <section class="digg-information">
-	<h1>Test</h1>
     <header>Välkommen till Sveriges dataportals community!</header>
     <p>Vad roligt att just du hittat hit! Här kan du ställa frågor, delta i diskussioner, visa upp dina projekt, knyta nya kontakter eller hitta nya samarbeten för utveckling och innovation. Forumet kan läsas av alla, men för att skriva inlägg behöver du först registrera dig.</p>
 	<p>Tillsammans bidrar vi till att data blir en bred värdeskapande resurs för hela samhället - för innovation, transparens och kunskap!</p>
