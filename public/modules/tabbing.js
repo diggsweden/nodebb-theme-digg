@@ -10,7 +10,7 @@
 define([], () => {
     "use-strict";
     return () => {
-        
+
         /* #region variables */
         const focusableElements = 'a[href]:not([disabled]):not(.hidden), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
         const userControls = $('#user-control-list');
@@ -26,11 +26,20 @@ define([], () => {
 
         // Make mobile menu visible when clicked, and trap focus
         $('#mobile-menu').on('click', ev => {
-            const menu = $('#menu');
+            const menu = $('#menu'); // mobile menu
             menu.css('display', `${"block"}`);
             trapFocus(menu[0]);
             skipToElement($('.menu-profile'), true);
+
+            $(".slideout-panel").on("click", e => {
+                setTimeout(() => {
+                const menuOpen = $('html').hasClass('slideout-open');
+                    setDisplayOnMobileMenus();
+                    !menuOpen && skipToContent();
+                }, 500);
+            });
         });
+
 
         // Make mobile chats visible when clicked, and trap focus
         $('#mobile-chats').on('click', ev => {
@@ -50,8 +59,6 @@ define([], () => {
             }
             $('#user_label').unbind();
         });
-
-        $("#userlabee")
 
         // Trap focus in modal
         $("deleteAccountBtn").on("click", () => {
