@@ -36,9 +36,9 @@
         <!-- IF allowCoverPicture -->
         <!-- IF canEdit -->
         <div class="controls">
-            <span data-keypress-enter tabindex="0" class="upload focusable"><i
+            <span data-keypress-enter data-openmodal tabindex="0" class="upload focusable"><i
                     class="fa fa-fw fa-4x fa-upload"></i></span>
-            <span data-keypress-enter tabindex="0" class="remove focusable"><i
+            <span data-keypress-enter data-openmodal tabindex="0" class="remove focusable"><i
                     class="fa fa-fw fa-4x fa-times"></i></span>
         </div>
         <div class="save">[[groups:cover-save]] <i class="fa fa-fw fa-floppy-o"></i></div>
