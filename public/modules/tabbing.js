@@ -74,8 +74,8 @@ define([], () => {
             });
 
             // Trap focus in modal
-            $("deleteAccountBtn").on("click", () => {
-                handleModal();
+            $("#deleteAccountBtn").on("click", e => {
+                handleModal(e.currentTarget);
             });
 
             $("#dropupPaginatorClose").on("click", () => {
@@ -104,7 +104,7 @@ define([], () => {
 
             // Handle composer when new-topic button is pressed
             $("#new_topic").on("click", e => {
-                handleComposer();
+                handleComposer(e.currentTarget);
             })
 
             // Trap focus and handle both panels and modals
@@ -120,7 +120,7 @@ define([], () => {
                     })
                     threadPanelTriggers.each((i, el) => {
                         $(el).on("click", e => {
-                            handlePanel();
+                            handlePanel(e.currentTarget);
                         })
                     })
                 }, 200);
@@ -146,12 +146,12 @@ define([], () => {
                     })
                     postPanelTriggers.each((i, el) => {
                         $(el).on("click", e => {
-                            handlePanel();
+                            handlePanel(e.currentTarget);
                         })
                     })
                     postComposerTriggers.each((i, el) => {
                         $(el).on("click", e => {
-                            handleComposer();
+                            handleComposer(e.currentTarget);
                         })
                     })
                 }, 200);
@@ -182,7 +182,7 @@ define([], () => {
             /**
              * Make tabbing accessible in the composer
              */
-            function handleComposer() {
+            function handleComposer(referrer) {
                 setTimeout(() => { // Timeout effects are used to wait for components to mount
                     const composer = $("[component=composer]");
                     if (!composer[0]) {
@@ -206,19 +206,10 @@ define([], () => {
                                     $(help).click();
                                 }
                             })
-                            $(help).on("click", () => {
-                                handleModal();
+                            $(help).on("click", e => {
+                                handleModal(e.currentTarget);
                             })
                         }
-
-                        //focus the "New topic"-button when the editor i closed
-                        $(composer).keydown(e => {
-                            var key = e.which;
-                            if (key == 27)  // the escape key code
-                            {
-                                $("#new_topic").focus();
-                            }
-                        })
 
                         // Trap focus inside the composer
                         trapFocus(composer[0], focusable);
@@ -239,6 +230,10 @@ define([], () => {
                         // handle modal if "are you sure"-dialog opens
                         discard.on("click", () => {
                             handleModal();
+                        })
+
+                        focusable.on("click", () => {
+                            onComposerClose(referrer);
                         })
 
                         // Make the category-dropdown menu accessible with tabbing
@@ -341,7 +336,7 @@ define([], () => {
             /**
              * Traps focus within modal
              */
-            function handleModal() {
+            function handleModal(referrer) {
                 setTimeout(() => {
                     const modalContent = $(".modal-content");
                     if (!modalContent[0]) {
@@ -359,6 +354,7 @@ define([], () => {
                     $(focusable).on("click", () => {
                         setTimeout(() => {
                             handleComposer();
+                            onModalClose(referrer);
                         }, 100);
                     })
 
@@ -377,7 +373,7 @@ define([], () => {
             /**
              * Traps focus wihtin panel
              */
-            function handlePanel() {
+            function handlePanel(referrer) {
                 setTimeout(() => {
                     const panelContent = $(".panel");
                     if (!panelContent[0]) {
@@ -387,6 +383,9 @@ define([], () => {
                     const focusable = panelContent.find('a[href]:not(.hidden), button, select, input');
                     trapFocus(panelContent[0], focusable, false, true);
                     focusable[0] && focusable[0].focus();
+                    focusable.on("click", () => {
+                        onPanelClose(referrer);
+                    })
                 }, 200);
             }
 
@@ -432,13 +431,13 @@ define([], () => {
             function SetHandlers() {
                 setTimeout(() => {
                     // Handle modal when a modal-trigger is clicked
-                    $("[data-openmodal]").on("click", () => {
-                        handleModal();
+                    $("[data-openmodal]").on("click", e => {
+                        handleModal(e.currentTarget);
                     });
 
                     // Handle panel when a panel-trigger is clicked
-                    $("[data-openpanel").on("click", () => {
-                        handlePanel();
+                    $("[data-openpanel").on("click", e => {
+                        handlePanel(e.currentTarget);
                     });
 
                     // Make a click when pressing enter-key on these elements
@@ -453,9 +452,38 @@ define([], () => {
 
                     // Handle composer when element is clicked
                     $("[data-handlecomposer]").on("click", e => {
-                        handleComposer();
+                        handleComposer(e.currentTarget);
                     });
                 }, 150);
+            }
+
+            function onModalClose(referrer) {
+                setTimeout(() => {
+                    const modalContent = $(".modal-content");
+                    if (modalContent.length == 0) {
+                        const dropdown = $(referrer).parent().parent().siblings("[data-toggle='dropdown']");
+                        dropdown.length > 0 ? dropdown.focus() : referrer?.focus();
+                    }
+                }, 200);
+            }
+
+            function onPanelClose(referrer) {
+                setTimeout(() => {
+                    const panel = $(".panel");
+                    if (panel.length == 0) {
+                        const dropdown = $(referrer).parent().parent().siblings("[data-toggle='dropdown']");
+                        dropdown.length > 0 ? dropdown.focus() : referrer?.focus();
+                    }
+                }, 200);
+            }
+
+            function onComposerClose(referrer) {
+                setTimeout(() => {
+                    const composer = $("[component=composer]");
+                    if (composer.length == 0) {
+                        referrer?.focus();
+                    }
+                }, 200);
             }
             /* #endregion */
 
