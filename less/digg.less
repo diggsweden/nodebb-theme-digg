@@ -1,9 +1,7 @@
 @import "./variables";
-
+@import "./mixins";
 @import "./styles";
-
 @import "./modules/cookie-consent";
-
 @import "./header";
 @import "./menu";
 @import "./account";
@@ -13,6 +11,9 @@
 @import "./unread";
 @import "./recent";
 @import "./popular";
+@import "./notifications";
+@import "./search";
+@import "./blocks";
 
 .btn-primary {
     background-color: @button-primary-background;
@@ -71,5 +72,11 @@
     &:focus {
         transform: translateY(0);
         opacity  : 1;
+    }
+}
+
+[data-outlineparent] {
+    &.focused {
+        .dotted-focus;
     }
 }

@@ -15,7 +15,7 @@
 					</div>
 					<ul class="list-group">
 						<!-- IF allowProfilePicture -->
-						<a id="changePictureBtn" href="#" class="list-group-item">[[user:change_picture]]</a>
+						<a id="changePictureBtn" data-openmodal href="#" class="list-group-item">[[user:change_picture]]</a>
 						<!-- ENDIF allowProfilePicture -->
 						<!-- IF !username:disableEdit -->
 						<a href="{config.relative_path}/user/{userslug}/edit/username" class="list-group-item">[[user:change_username]]</a>

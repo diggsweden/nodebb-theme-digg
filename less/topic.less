@@ -1,3 +1,4 @@
+@import "./mixins";
 .topic {
 	.category-item {
 		.icon {
@@ -18,4 +19,13 @@
 
 .topic [component="post/downvote"], .topic [component="post/upvote"] {
     text-decoration: none;
+}
+
+.votes {
+	span {
+		cursor: pointer;
+		&:focus {
+			.dotted-focus;
+		}
+	}
 }

@@ -37,7 +37,7 @@
 		<span class="bookmarked"><i class="fa fa-bookmark-o"></i></span>
 	</small>
 	<small class="pull-right">
-		<i component="post/edit-indicator" class="fa fa-pencil-square<!-- IF privileges.posts:history --> pointer<!-- END --> edit-icon <!-- IF !posts.editor.username -->hidden<!-- ENDIF !posts.editor.username -->"></i>
+		<i component="post/edit-indicator" data-openmodal class="fa fa-pencil-square<!-- IF privileges.posts:history --> pointer<!-- END --> edit-icon <!-- IF !posts.editor.username -->hidden<!-- ENDIF !posts.editor.username -->"></i>
 
 		<small data-editor="{posts.editor.userslug}" component="post/editor" class="hidden">[[global:last_edited_by, {posts.editor.username}]] <span class="timeago" title="{posts.editedISO}"></span></small>
 
@@ -78,8 +78,8 @@
 
 	<small class="pull-right">
 		<span class="post-tools">
-			<a data-handlecomposer component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
-			<a data-handlecomposer component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
+			<a data-handlecomposer data-openmodal component="post/reply" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:reply]]</a>
+			<a data-handlecomposer data-openmodal component="post/quote" href="#" class="no-select <!-- IF !privileges.topics:reply -->hidden<!-- ENDIF !privileges.topics:reply -->">[[topic:quote]]</a>
 		</span>
 
 		<!-- IF !reputation:disabled -->
@@ -88,7 +88,7 @@
 				<i class="fa fa-thumbs-up"></i> <!-- IF posts.upvoted -->Gillat<!-- ELSE -->Gilla<!-- ENDIF posts.upvoted -->
 			</a>
 
-			<span component="post/vote-count" data-votes="{posts.votes}">{posts.votes}</span>
+			<span component="post/vote-count" tabindex="0" data-openmodal data-keypress-enter data-votes="{posts.votes}">{posts.votes}</span>
 
 			<!-- IF !downvote:disabled -->
 			<a component="post/downvote" href="#" class="<!-- IF posts.downvoted -->downvoted<!-- ENDIF posts.downvoted -->">

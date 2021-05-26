@@ -1,17 +1,22 @@
+@import "./mixins";
+
 .account {
     margin-top: 0;
 
     .cover {
         margin-bottom: 5em;
-        position: relative;
-        top: initial;
-        left: initial;
-        right: initial;
+        position     : relative;
+        top          : initial;
+        left         : initial;
+        right        : initial;
     }
 
     .avatar {
         &.avatar-rounded {
             border-radius: 50% !important;
+        }
+        &:before {
+            display: inline;
         }
     }
 
@@ -21,5 +26,28 @@
 
     .controls:focus-within {
         opacity: 0.8;
+    }
+
+
+    .cover {
+        .controls {
+            max-width: 1050px;
+        }
+    }
+}
+
+.bootbox-body {
+    .media {
+        overflow: visible;
+    }
+}
+
+.changepicmod--label {
+    &:focus {
+        outline: none;
+
+        span {
+            .dotted-focus;
+        }
     }
 }
