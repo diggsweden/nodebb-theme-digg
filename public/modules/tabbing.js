@@ -229,7 +229,7 @@ define([], () => {
 
                         // handle modal if "are you sure"-dialog opens
                         discard.on("click", () => {
-                            handleModal();
+                            handleModal(referrer, discard);
                         })
 
                         focusable.on("click", () => {
@@ -336,7 +336,7 @@ define([], () => {
             /**
              * Traps focus within modal
              */
-            function handleModal(referrer) {
+            function handleModal(referrer, composerReferrer) {
                 setTimeout(() => {
                     const modalContent = $(".modal-content");
                     if (!modalContent[0]) {
@@ -351,10 +351,11 @@ define([], () => {
                     makeDropDownTabbable(dropDown, modalContent, false, true)
 
                     // Handle composer if closing a modal opens the composer (ex if you a reply a topic that is old)
-                    $(focusable).on("click", () => {
+                    $(focusable).on("click", e => {
                         setTimeout(() => {
-                            handleComposer();
-                            onModalClose(referrer);
+                            const isAborting = $(e.target).hasClass("bootbox-cancel");
+                            handleComposer(referrer);
+                            onModalClose(composerReferrer ? isAborting ? composerReferrer : referrer : referrer);
                         }, 100);
                     })
 
@@ -464,7 +465,7 @@ define([], () => {
                         const dropdown = $(referrer).parent().parent().siblings("[data-toggle='dropdown']");
                         dropdown.length > 0 ? dropdown.focus() : referrer?.focus();
                     }
-                }, 200);
+                }, 300);
             }
 
             function onPanelClose(referrer) {
@@ -474,7 +475,7 @@ define([], () => {
                         const dropdown = $(referrer).parent().parent().siblings("[data-toggle='dropdown']");
                         dropdown.length > 0 ? dropdown.focus() : referrer?.focus();
                     }
-                }, 200);
+                }, 300);
             }
 
             function onComposerClose(referrer) {
@@ -483,7 +484,7 @@ define([], () => {
                     if (composer.length == 0) {
                         referrer?.focus();
                     }
-                }, 200);
+                }, 300);
             }
             /* #endregion */
 
