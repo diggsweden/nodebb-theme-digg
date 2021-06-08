@@ -356,7 +356,7 @@ define([], () => {
                     // Handle composer if closing a modal opens the composer (ex if you a reply a topic that is old)
                     $(focusable).on("click", e => {
                         setTimeout(() => {
-                            const isAborting = $(e.target).hasClass("bootbox-cancel");
+                            const isAborting = $(e.target).hasClass("bootbox-cancel") || $(e.target).hasClass("bootbox-close-button");
                             handleComposer(referrer);
                             onModalClose(composerReferrer ? isAborting ? composerReferrer : referrer : referrer);
                         }, 100);
@@ -370,7 +370,7 @@ define([], () => {
                     keypressEnterClick.each((i, el) => {
                         clickOnEnterPress(el);
                     });
-                }, 500);
+                }, 650);
             }
 
 
