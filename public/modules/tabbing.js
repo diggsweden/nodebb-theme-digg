@@ -43,13 +43,15 @@ define([], () => {
             // Make mobile menu visible when clicked, and trap focus
             $('#mobile-menu').on('click', ev => {
                 const menu = $('#menu'); // mobile menu
-                menu.css('display', `${"block"}`);
+                $('#menu').find(focusableElements).each((i, el) => {
+                    $(el).attr("tabindex", 0);
+                })
                 trapFocus(menu[0]);
                 skipToElement($('.menu-profile'), true);
 
                 $(".slideout-panel").on("click", e => {
                     setTimeout(() => {
-                        setDisplayOnMobileMenus();
+                        setTabindexOnMenu();
                     }, 500);
                 });
             });
@@ -255,12 +257,13 @@ define([], () => {
             }
 
             /**
-             * Fix so you cannot tab inside mobile menus in desktop
+             * Fix so you cannot tab inside mobile menu in desktop
              */
-            function setDisplayOnMobileMenus() {
+            function setTabindexOnMenu() {
                 const menuOpen = $('html').hasClass('slideout-open');
-                $('#menu').css('display', `${!menuOpen ? "none" : "block"}`);
-                $('#chats-menu').css('display', `${!menuOpen ? "none" : "block"}`);
+                !menuOpen && $('#menu').find(focusableElements).each((i, el) => {
+                    $(el).attr("tabindex", -1);
+                })
             }
 
 
@@ -353,7 +356,7 @@ define([], () => {
                     // Handle composer if closing a modal opens the composer (ex if you a reply a topic that is old)
                     $(focusable).on("click", e => {
                         setTimeout(() => {
-                            const isAborting = $(e.target).hasClass("bootbox-cancel");
+                            const isAborting = $(e.target).hasClass("bootbox-cancel") || $(e.target).hasClass("bootbox-close-button");
                             handleComposer(referrer);
                             onModalClose(composerReferrer ? isAborting ? composerReferrer : referrer : referrer);
                         }, 100);
@@ -367,7 +370,7 @@ define([], () => {
                     keypressEnterClick.each((i, el) => {
                         clickOnEnterPress(el);
                     });
-                }, 500);
+                }, 650);
             }
 
 
@@ -489,7 +492,7 @@ define([], () => {
             /* #endregion */
 
             // Inits
-            setDisplayOnMobileMenus();
+            setTabindexOnMenu();
             SetHandlers();
             trapFocus(userControls[0]);
         })
