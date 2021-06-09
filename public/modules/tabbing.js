@@ -197,6 +197,8 @@ define([], () => {
                         const input = composer.find('.title, .write, .ui-autocomplete-input');
                         const discard = $('.composer-discard');
 
+                        dropDown.focus();
+
                         // Make the helptext in the editor tabbable
                         const help = composer.find(".help");
                         if (help[0]) {
@@ -239,7 +241,7 @@ define([], () => {
                         })
 
                         // Make the category-dropdown menu accessible with tabbing
-                        makeDropDownTabbable(dropDown, composer, $("#new_topic")[0])
+                        makeDropDownTabbable(dropDown, composer, dropDown)
                     }, 100);
                 }, 200);
             }
@@ -411,13 +413,19 @@ define([], () => {
                         if (!ddFocusable[0]) {
                             return;
                         }
+
                         ddFocusable.each((i, el) => {
                             el.tabIndex = 0;
                             el.href = "#";
                             i == 0 && el.focus();
+                            $(el).on("click", () => {
+                                setTimeout(() => {
+                                    dropDown.focus();
+                                }, 200);
+                            })
                         })
                         trapFocus(ddMenu[0], ddFocusable, toFocusOnClose, skipToMainContent);
-                    }, 300);
+                    }, 500);
                 })
             }
 
