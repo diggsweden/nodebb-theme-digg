@@ -64,6 +64,7 @@ define([], () => {
             });
 
             // Make the user menu accessible with enter key and traps focus
+            $('#user_label').unbind();
             $('#user_label').keypress(e => {
                 const key = e.which;
                 if (key == 13)  // the enter key code
@@ -71,7 +72,6 @@ define([], () => {
                     $('#user_dropdown').click();
                     skipToElement(userControls[0].querySelectorAll(focusableElements));
                 }
-                $('#user_label').unbind();
             });
 
             // Trap focus in modal
