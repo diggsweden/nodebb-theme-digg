@@ -10,7 +10,6 @@
 define([], () => {
     "use-strict";
     return () => {
-
         require(["utils"], utils => {
 
             /* #region variables */
@@ -368,7 +367,7 @@ define([], () => {
                     OutlineParent();
 
                     // Reinstance clickOnEnterPress for modal
-                    const keypressEnterClick = $(`[data-keypress-enter]`);
+                    const keypressEnterClick = modalContent.find(`[data-keypress-enter]`);
                     keypressEnterClick.each((i, el) => {
                         clickOnEnterPress(el);
                     });
