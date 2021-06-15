@@ -74,6 +74,17 @@ define([], () => {
                 }
             });
 
+            userControls.find(focusableElements).each((i, el) => {
+                $(el).unbind();
+                $(el).on("click", () => {
+                    if ($(el).hasClass("user-status")) {
+                        document.getElementById("user_label").focus();
+                    } else {
+                        skipToContent();
+                    }
+                })
+            })
+
             // Trap focus in modal
             $("#deleteAccountBtn").on("click", e => {
                 handleModal(e.currentTarget);
@@ -501,7 +512,7 @@ define([], () => {
             // Inits
             setTabindexOnMenu();
             SetHandlers();
-            trapFocus(userControls[0]);
+            trapFocus(userControls[0], null, $("#user_label"));
         })
     }
 })
