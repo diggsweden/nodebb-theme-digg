@@ -17,7 +17,7 @@
 			<button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
 				<!-- IF selectedFilter -->{selectedFilter.name}<!-- ENDIF selectedFilter --> <span class="caret"></span>
 			</button>
-			<ul class="dropdown-menu" role="menu">
+			<ul class="dropdown-menu" role="menu" aria-label="[[global:aria-notification-navigation]]">
 				{{{each filters}}}
 				<!-- IF filters.separator -->
 				<li role="separator" class="divider"></li>

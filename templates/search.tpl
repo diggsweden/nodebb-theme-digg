@@ -8,7 +8,7 @@
 					<div class="row">
 						<div class="col-md-6">
 							<label for="search-input">[[global:search]]</label>
-							<input type="text" class="form-control" id="search-input" placeholder="[[global:search]]">
+							<input type="text" class="form-control" id="search-input"  placeholder="[[global:search]]">
 						</div>
 						<div class="col-md-2">
 							<label for="search-in">[[search:in]]</label>

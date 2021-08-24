@@ -1,5 +1,12 @@
 {
     "x-posts": "%1 inlägg",
     "x-votes": "%1 röster",
-    "voters": "Röstare"
+    "voters": "Röstare",
+    "aria-header-navigation": "till dataportalen",
+    "aria-main-navigation": "Huvudsaklig",
+    "aria-slideout-navigation": "Utskjutsmeny",
+    "aria-chat-navigation": "Chatt",
+    "aria-breadcrumb-navigation": "Brödsmulor",
+    "aria-notification-navigation": "Notifikationer",
+    "aria-secondary-navigation": "sekundär"
 }

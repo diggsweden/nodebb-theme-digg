@@ -39,7 +39,7 @@
 			        {{{end}}}
 			    </ul>
 
-				<div class="navbar-nav navbar-right navbar-second">
+				<div class="navbar-nav navbar-right navbar-second" aria-label="[[global:aria-secondary-navigation]]">
 					<!-- IF config.searchEnabled -->
 					<ul class="nav">
 						<li>

@@ -23,23 +23,22 @@
 
 <body class="{bodyClass} skin-<!-- IF bootswatchSkin -->{bootswatchSkin}<!-- ELSE -->noskin<!-- END -->">
 
-	<button class="skip-to-content">Till innehållet</button>
+	<button class="skip-to-content" aria-label="[[header:skip-to-content]]">[[header:skip-to-content]]</button>
 
-	<main id="panel" class="slideout-panel">
-        <div class="container">
-			<div class="digg-navigation">
-				<div class="digg-logo">
-					<a href="https://www.dataportal.se/sv">
-						<img src="/plugins/nodebb-theme-digg/images/dataportal_logo.svg" alt="">
-					</a>
-				</div>
-				<nav class="digg-menu">
-					<a href="https://www.dataportal.se/sv/datasets?q=&f=">Sök data</a>
-					<a href="https://www.dataportal.se/sv/nyheter">Nyheter</a>
-					<a href="https://www.dataportal.se/sv/om-oss/">Om oss</a>
-					<a href="/" class="active">Community</a>
-				</nav>
-			</div>
+	<header class="digg-navigation container">
+		<div class="digg-logo">
+			<a href="https://www.dataportal.se/sv">
+				<img src="/plugins/nodebb-theme-digg/images/dataportal_logo.svg" alt="">
+			</a>
+		</div>
+		<nav class="digg-menu" aria-label="[[global:aria-header-navigation]]">
+			<a href="https://www.dataportal.se/sv/datasets?q=&f=">[[header:search-data]]</a>
+			<a href="https://www.dataportal.se/sv/nyheter">[[header:news]]</a>
+			<a href="https://www.dataportal.se/sv/om-oss/">[[header:about]]</a>
+			<a href="/" class="active">Community</a>
+		</nav>
+	</header>
+        <div id="banner" class="container">
 			<div class="digg-divider"></div>
 			<!-- IF breadcrumbs.length -->
 			<!-- ELSE -->
@@ -47,19 +46,24 @@
 				<img src="/plugins/nodebb-theme-digg/images/community_bg.jpg" alt="" />
 			</div>
 			<!-- ENDIF breadcrumbs.length -->
-			<nav class="navbar navbar-default header" id="header-menu" component="navbar">
+			<nav class="navbar navbar-default header" id="header-menu" component="navbar" aria-label="[[global:aria-main-navigation]]">
 				<div class="container">
 					<!-- IMPORT partials/menu.tpl -->
 				</div>
 			</nav>
-			<nav id="menu" class="slideout-menu hidden">
+			<nav id="menu" class="slideout-menu hidden" aria-label="[[global:aria-slideout-navigation]]">
+				<div class="container">
 				<!-- IMPORT partials/slideout-menu.tpl -->
+				</div>
 			</nav>
-			<nav id="chats-menu" class="slideout-menu hidden">
+			<nav id="chats-menu" class="slideout-menu hidden" aria-label="[[global:aria-chat-navigation]]">
+				<div class="container">
 				<!-- IMPORT partials/chats-menu.tpl -->
+				</div>
 			</nav>
         </div>
         
+	<main id="panel" class="slideout-panel">
 		<div class="container" id="content">
 		<!-- IMPORT partials/noscript/warning.tpl -->
 		<!-- IMPORT partials/noscript/message.tpl -->
