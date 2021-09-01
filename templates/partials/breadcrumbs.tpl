@@ -18,7 +18,7 @@
 <!-- ELSE -->
 <section class="digg-information">
     <header>Välkommen till Sveriges dataportals community!</header>
-    <p>Vad roligt att just du hittat hit! Här kan du ställa frågor, delta i diskussioner, visa upp dina projekt, knyta nya kontakter eller hitta nya samarbeten för utveckling och innovation. Forumet kan läsas av alla, men för att skriva inlägg behöver du först registrera dig.</p>
+    <p>Vad roligt att just du hittat hit! Här kan du ställa frågor, delta i diskussioner, visa upp dina projekt, knyta nya kontakter eller hitta nya samarbeten för utveckling och innovation. Forumet kan läsas av alla, men för att skriva inlägg behöver du först registrera dig. Mer information om hur det fungerar här hittar du i kategorin "<a href="https://community.dataportal.se/category/11/om-detta-community">Om detta community</a>"</p>
 	<p>Tillsammans bidrar vi till att data blir en bred värdeskapande resurs för hela samhället - för innovation, transparens och kunskap!</p>
 </section>
 <!-- ENDIF breadcrumbs.length -->
