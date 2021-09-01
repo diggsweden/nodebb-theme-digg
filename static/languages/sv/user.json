@@ -16,5 +16,7 @@
     "consent.right_to_erasure": "Vi erbjuder borttagning",
     "consent.right_to_erasure_description": "Du kan när som helst radera ditt konto. Din individuella profil kan raderas, men innehåll du lagt upp kommer bestå. Om du vill radera både din profil <strong>och</strong> ditt innehåll, vänligen kontakta Myndigheten för digital förvaltning (<a href=\"mailto:info@digg.se\">info@digg.se</a>) för en prövning.",
     "consent.right_to_data_portability": "Vi erbjuder dataportabilitet",
-    "consent.export_profile": "Exportera profil (.json)"
+    "consent.export_profile": "Exportera profil (.json)",
+    "upload_new_picture_from_url_short": "Via URL",
+    "upload_new_picture_short": "Ladda upp"
 }

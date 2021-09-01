@@ -37,8 +37,7 @@
 					[[user:upload_new_picture]]
 				</span>
 				<span class="visible-xs-inline visible-sm-inline">
-					<i class="fa fa-plus"></i>
-					<i class="fa fa-upload"></i>
+					[[user:upload_new_picture_short]]
 				</span>
 			</button>
 			<!-- ENDIF allowProfileImageUploads -->
@@ -47,8 +46,7 @@
 					[[user:upload_new_picture_from_url]]
 				</span>
 				<span class="visible-xs-inline visible-sm-inline">
-					<i class="fa fa-plus"></i>
-					<i class="fa fa-link"></i>
+					[[user:upload_new_picture_from_url_short]]
 				</span>
 			</button>
 			<!-- IF uploaded -->

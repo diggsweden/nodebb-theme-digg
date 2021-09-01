@@ -22,6 +22,9 @@
 
     .btn-group.account-fab {
         right: 135px;
+        @media screen and (max-width: 48em) {
+            right: 10px;
+        }
     }
 
     .controls:focus-within {
@@ -36,6 +39,22 @@
 
     .show-danger .form-feedback {
         color: @danger;
+    }
+
+    .pad-lr-xxs-10 {
+        @media screen and (max-width: 37.5em) {
+            padding: 0 10px;
+        }
+    }
+    .margin-xxs-0 {
+        @media screen and (max-width: 37.5em) {
+            margin: 0;
+        }
+    }
+    .margin-bot-xxs-5 {
+        @media screen and (max-width: 37.5em) {
+            margin-bottom: 5px;
+        }
     }
 }
 
