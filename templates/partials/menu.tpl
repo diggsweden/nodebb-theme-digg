@@ -1,13 +1,15 @@
 			<div class="navbar-header">
-			    <button type="button" class="navbar-toggle pull-left" id="mobile-menu">
+			    <button type="button" class="navbar-toggle pull-left visible-xs hidden" id="mobile-menu">
 			        <span component="notifications/icon" class="notification-icon fa fa-fw fa-bell-o unread-count"
 			            data-content="{unreadCount.notification}"></span>
 			        <i class="fa fa-lg fa-fw fa-bars"></i>
+					<i class='hidden'>moblie-menu</i>
 			    </button>
 			    <button type="button" class="navbar-toggle hidden" id="mobile-chats">
 			        <span component="chat/icon" class="notification-icon fa fa-fw fa-comments unread-count"
 			            data-content="{unreadCount.chat}"></span>
 			        <i class="fa fa-lg fa-comment-o"></i>
+					<i class='hidden'>moblie-chats</i>
 			    </button>
 
 			    <div component="navbar/title" class="visible-xs hidden">
@@ -18,28 +20,30 @@
 			<div id="nav-dropdown" class="hidden-xs">
 			    <!-- IF !maintenanceHeader -->
 
-			    <ul id="main-nav" class="nav navbar-nav">
-			        {{{each navigation}}}
-			        <!-- IF function.displayMenuItem, @index -->
-			        <li class="{navigation.class}">
-			            <a class="navigation-link" href="{navigation.route}" title="{navigation.title}" <!-- IF navigation.id
-			                -->id="{navigation.id}"
-			                <!-- ENDIF navigation.id -->
-			                <!-- IF navigation.properties.targetBlank --> target="_blank"
-			                <!-- ENDIF navigation.properties.targetBlank -->>
-			                <!-- IF navigation.iconClass -->
-			                <i class="fa fa-fw {navigation.iconClass}" data-content="{navigation.content}"></i>
-			                <!-- ENDIF navigation.iconClass -->
-			                <!-- IF navigation.text -->
-			                <span class="{navigation.textClass}">{navigation.text}</span>
-			                <!-- ENDIF navigation.text -->
-			            </a>
-			        </li>
-			        <!-- ENDIF function.displayMenuItem -->
-			        {{{end}}}
-			    </ul>
+				<nav aria-label="[[global:aria-main-navigation]]">
+					<ul id="main-nav" class="nav navbar-nav">
+						{{{each navigation}}}
+						<!-- IF function.displayMenuItem, @index -->
+						<li class="{navigation.class}">
+							<a class="navigation-link" href="{navigation.route}" title="{navigation.title}" <!-- IF navigation.id
+								-->id="{navigation.id}"
+								<!-- ENDIF navigation.id -->
+								<!-- IF navigation.properties.targetBlank --> target="_blank"
+								<!-- ENDIF navigation.properties.targetBlank -->>
+								<!-- IF navigation.iconClass -->
+								<i class="fa fa-fw {navigation.iconClass}" data-content="{navigation.content}"></i>
+								<!-- ENDIF navigation.iconClass -->
+								<!-- IF navigation.text -->
+								<span class="{navigation.textClass}">{navigation.text}</span>
+								<!-- ENDIF navigation.text -->
+							</a>
+						</li>
+						<!-- ENDIF function.displayMenuItem -->
+						{{{end}}}
+					</ul>
+				</nav>
 
-				<div class="navbar-nav navbar-right navbar-second" aria-label="[[global:aria-secondary-navigation]]">
+				<nav class="navbar-nav navbar-right navbar-second" aria-label="[[global:aria-secondary-navigation]]">
 					<!-- IF config.searchEnabled -->
 					<ul class="nav">
 						<li>
@@ -48,7 +52,8 @@
 										class="fa fa-search fa-fw"></i><span>[[global:header.search]]</span></button>
 								<div class="hidden" id="search-fields">
 									<div class="form-group">
-										<input tabindex="-1" autocomplete="off" type="text" class="form-control" placeholder="[[global:search]]"
+										<label for='query' class='hidden'>search</label>
+										<input id='query' tabindex="-1" autocomplete="off" type="text" class="form-control" placeholder="[[global:search]]"
 											name="query" value="">
 									</div>
 									<button type="submit" class="btn btn-default hide">[[global:search]]</button>
@@ -56,9 +61,8 @@
 							</form>
 							<div id="quick-search-container" class="quick-search-container hidden">
 								<div class="checkbox filter-category">
-									<label>
-										<input type="checkbox" checked><span class="name"></span>
-									</label>
+									<label for='name-checkbox' style='display: none'>Name Checkbox</label>
+									<input id='name-checkbox' type="checkbox" checked><span class="name"></span>
 								</div>
 								<div class="text-center loading-indicator"><i class="fa fa-spinner fa-spin"></i></div>
 								<div class="quick-search-results-container"></div>
@@ -76,6 +80,7 @@
 						<li>
 							<a href="#" id="reconnect" class="hide" title="[[global:reconnecting-message, {config.siteTitle}]]">
 								<i class="fa fa-check"></i>
+								<i class="hidden">[[global:reconnecting-message]]</i>
 							</a>
 						</li>
 					</ul>
@@ -131,7 +136,7 @@
 
 						<li id="user_label" tabindex="0" class="dropdown">
 							<label for="user-control-list-check" class="dropdown-toggle" data-toggle="dropdown" id="user_dropdown"
-								title="[[global:header.profile]]" role="button">
+								title="[[global:header.profile]]" >
 								{buildAvatar(user, "md", true)}
 								<span id="user-header-name" class="visible-xs-inline">{user.username}</span>
 							</label>
@@ -234,17 +239,6 @@
 						</li>
 					</ul>
 					<!-- ENDIF config.loggedIn -->
-
-					<!-- ELSE -->
-					<ul class="nav">
-						<li>
-							<a href="{relative_path}/login">
-								<i class="fa fa-sign-in fa-fw hidden-sm hidden-md hidden-lg"></i>
-								<span>[[global:login]]</span>
-							</a>
-						</li>
-					</ul>
-				</div>
-			    
+				</nav>
 			    <!-- ENDIF !maintenanceHeader -->
 			</div>

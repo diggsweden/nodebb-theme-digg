@@ -8,7 +8,7 @@
         </a>
 
         <i class="fa fa-2x fa-angle-double-down pointer fa-fw pagebottom"></i>
-        <ul class="dropdown-menu dropdown-menu-right" role="menu" data-trapfocus>
+        <ul class="dropdown-menu dropdown-menu-right" role="navigation" data-trapfocus>
             <li class="row bootbox--close">
                 <button id="dropupPaginatorClose" class="bootbox-close-button close">×</button> 
             </li>
@@ -28,7 +28,8 @@
                         </div>
                     </div>
                 </div>
-                <input type="text" class="form-control" id="indexInput" placeholder="[[global:pagination.enter_index]]">
+                <label for="pagignaiton-enter-index" class='hidden'>Pagination enter dropup</label>
+                <input id="pagignaiton-enter-index" type="text" class="form-control" id="indexInput" placeholder="[[global:pagination.enter_index]]">
             </li>
         </ul>
     </div>

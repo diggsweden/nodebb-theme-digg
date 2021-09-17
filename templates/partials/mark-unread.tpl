@@ -4,9 +4,10 @@
         <span class="caret"></span>
     </button>
     <div component="category-selector-search" class="hidden">
-        <input type="text" class="form-control" autocomplete="off">
+	    <label for='category-selector-marked-unread' class='hidden'>Category Selector Marked unread</label>
+        <input id='category-selector-marked-unread' type="text" class="form-control" autocomplete="off">
     </div>
-    <ul data-trapfocus component="category/list" class="dropdown-menu category-dropdown-menu" role="menu">
+    <ul data-trapfocus component="category/list" class="dropdown-menu category-dropdown-menu" role="role">
         <li role="presentation">
             <a id="markAllRead" role="menuitem" tabindex="-1" href="#">Alla</a>
         </li>

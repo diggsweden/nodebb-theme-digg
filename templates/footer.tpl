@@ -3,9 +3,9 @@
 	<!-- IF !isSpider -->
 	<div class="topic-search hidden">
 		<div class="btn-group">
-			<button type="button" class="btn btn-default count"></button>
-			<button type="button" class="btn btn-default prev"><i class="fa fa-fw fa-angle-up"></i></button>
-			<button type="button" class="btn btn-default next"><i class="fa fa-fw fa-angle-down"></i></button>
+			<button type="button" class="btn btn-default count"><i class='hidden'>count</i></button>
+			<button type="button" class="btn btn-default prev"><i class="fa fa-fw fa-angle-up"></i><i class='hidden'>prev</i></button>
+			<button type="button" class="btn btn-default next"><i class="fa fa-fw fa-angle-down"></i><i class='hidden'>next</i></button>
 		</div>
 	</div>
 

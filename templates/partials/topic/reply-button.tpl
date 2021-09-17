@@ -3,8 +3,9 @@
 	<a data-handlecomposer data-openmodal href="{config.relative_path}/compose?tid={tid}&title={title}" class="btn btn-sm btn-primary" component="topic/reply" data-ajaxify="false" role="button"><i class="fa fa-reply visible-xs-inline"></i><span class="visible-sm-inline visible-md-inline visible-lg-inline"> [[topic:reply]]</span></a>
 	<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">
 		<span class="caret"></span>
+		<i class="hidden">Reply dropdown-toggle</i>
 	</button>
-	<ul data-trapfocus class="dropdown-menu pull-right" role="menu">
+	<ul data-trapfocus class="dropdown-menu pull-right" role="navigation">
 		<li><a data-handlecomposer data-openmodal="" href="#" component="topic/reply-as-topic">[[topic:reply-as-topic]]</a></li>
 	</ul>
 </div>

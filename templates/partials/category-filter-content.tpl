@@ -3,9 +3,10 @@
     <span class="visible-sm-inline visible-md-inline visible-lg-inline">[[unread:all_categories]]</span><span class="visible-xs-inline"><i class="fa fa-fw fa-list"></i></span>{{{ end }}} <span class="caret"></span>
 </button>
 <div component="category-selector-search" class="hidden">
-    <input type="text" class="form-control" autocomplete="off">
+	<label for='category-selector-search' class='hidden'>Category Selector Search</label>
+    <input id='category-selector-search' type="text" class="form-control" autocomplete="off">
 </div>
-<ul data-trapfocus component="category/list" class="dropdown-menu category-dropdown-menu" role="menu">
+<ul data-trapfocus component="category/list" class="dropdown-menu category-dropdown-menu" role="navigation">
     {{{ if allCategoriesUrl }}}
     <li role="presentation" class="category" data-all="all">
         <a role="menu-item" href="{config.relative_path}/{allCategoriesUrl}"><i component="category/select/icon" class="fa fa-fw fa-check {{{if selectedCategory}}}invisible{{{end}}}"></i> [[unread:all_categories]]</a>

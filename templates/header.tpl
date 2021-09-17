@@ -28,7 +28,7 @@
 	<header class="digg-navigation container">
 		<div class="digg-logo">
 			<a href="https://www.dataportal.se/sv">
-				<img src="/plugins/nodebb-theme-digg/images/dataportal_logo.svg" alt="">
+				<img src="/plugins/nodebb-theme-digg/images/dataportal_logo.svg" alt="Sveriges dataportal, DIGG - Myndigheten för digital förvaltning">
 			</a>
 		</div>
 		<nav class="digg-menu" aria-label="[[global:aria-header-navigation]]">

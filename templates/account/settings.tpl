@@ -199,10 +199,10 @@
 					</div>
 
 					<div class="form-group row visible-xxs-inline hidden-xs hidden-sm hidden-md hidden-lg margin-xxs-0">
-						<label class="margin-bot-xxs-0" for="{notificationSettings.name}">{notificationSettings.label}</label>
+						<label class="margin-bot-xxs-0" for="{notificationSettings.name}-mobile">{notificationSettings.label}</label>
 					</div>
 					<div class="form-group row visible-xxs-inline hidden-xs hidden-sm hidden-md hidden-lg margin-bot-xxs-5">
-						<select id="{notificationSettings.name}" class="form-control" data-property="{notificationSettings.name}">
+						<select id="{notificationSettings.name}-mobile" class="form-control" data-property="{notificationSettings.name}">
 							<option value="none" <!-- IF notificationSettings.none -->selected<!-- ENDIF notificationSettings.none -->>[[notifications:none]]</option>
 							<option value="notification" <!-- IF notificationSettings.notification -->selected<!-- ENDIF notificationSettings.notification -->>[[notifications:notification_only]]</option>
 							<option value="email" <!-- IF notificationSettings.email -->selected<!-- ENDIF notificationSettings.email -->>[[notifications:email_only]]</option>

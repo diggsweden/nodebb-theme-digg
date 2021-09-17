@@ -93,6 +93,7 @@
 			<!-- IF !downvote:disabled -->
 			<a component="post/downvote" href="#" class="<!-- IF posts.downvoted -->downvoted<!-- ENDIF posts.downvoted -->">
 				<i class="fa fa-chevron-down"></i>
+				<i class="hidden">Downvote</i>
 			</a>
 			<!-- ENDIF !downvote:disabled -->
 		</span>

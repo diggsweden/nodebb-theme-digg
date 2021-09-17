@@ -2,6 +2,7 @@
 <div title="[[topic:thread_tools.title]]" class="btn-group thread-tools bottom-sheet">
 	<button class="btn btn-sm btn-default dropdown-toggle" id="thread_tools_button" data-toggle="dropdown" type="button">
 		<i class="fa fa-fw fa-gear"></i>
+		<i class="hidden">Thread tools button</i>
 	</button>
 	<ul data-trapfocus id="thread_tools" class="dropdown-menu dropdown-menu-right"></ul>
 </div>

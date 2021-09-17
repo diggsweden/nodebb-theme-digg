@@ -15,7 +15,8 @@
 			<div class="row flex--justify-end">
             	<div class="col-xs-7 col-md-5 text-left">
 					<div class="input-group">
-						<input type="text" class="form-control" placeholder="[[global:search]]" name="query" value="" id="search-text">
+						<label for='group-search' class='hidden'>Group Search</label>
+						<input id="group-search" type="text" class="form-control" placeholder="[[global:search]]" name="query" value="" id="search-text">
 						<span id="search-button" class="input-group-addon search-button"><i class="fa fa-search"></i></span>
 					</div>
 				</div>
