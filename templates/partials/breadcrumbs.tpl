@@ -1,22 +1,24 @@
 <!-- IF breadcrumbs.length -->
-<ol role="menu" class="breadcrumb" itemscope="itemscope" itemprop="breadcrumb" itemtype="http://schema.org/BreadcrumbList" aria-label="[[global:aria-breadcrumb-navigation]]">
-	{{{each breadcrumbs}}}
-	<li<!-- IF @last --> component="breadcrumb/current"<!-- ENDIF @last --> itemscope="itemscope" itemprop="itemListElement" itemtype="http://schema.org/ListItem" <!-- IF @last -->class="active"<!-- ENDIF @last -->>
-		<meta itemprop="position" content=`{@index}` />
-		<!-- IF !@last --><a href="{breadcrumbs.url}" itemprop="item"><!-- ENDIF !@last -->
-			<span itemprop="name">
-				{breadcrumbs.text}
-				<!-- IF @last -->
-				<!-- IF !feeds:disableRSS -->
-				<!-- IF rssFeedUrl --><a target="_blank" href="{rssFeedUrl}" itemprop="item"><i class="fa fa-rss-square"></i><i class='hidden'>breadcrumb link</i></a><!-- ENDIF rssFeedUrl --><!-- ENDIF !feeds:disableRSS -->
-				<!-- ENDIF @last -->
+<nav>
+	<ol class="breadcrumb" itemscope="itemscope" itemprop="breadcrumb" itemtype="http://schema.org/BreadcrumbList" aria-label="[[global:aria-breadcrumb-navigation]]">
+		{{{each breadcrumbs}}}
+		<li<!-- IF @last --> component="breadcrumb/current"<!-- ENDIF @last --> itemscope="itemscope" itemprop="itemListElement" itemtype="http://schema.org/ListItem" <!-- IF @last -->class="active"<!-- ENDIF @last -->>
+			<meta itemprop="position" content=`{@index}` />
+			<!-- IF !@last --><a href="{breadcrumbs.url}" itemprop="item"><!-- ENDIF !@last -->
+				<span itemprop="name">
+					{breadcrumbs.text}
+					<!-- IF @last -->
+					<!-- IF !feeds:disableRSS -->
+					<!-- IF rssFeedUrl --><a target="_blank" href="{rssFeedUrl}" itemprop="item"><i class="fa fa-rss-square"></i><i class='hidden'>breadcrumb link</i></a><!-- ENDIF rssFeedUrl --><!-- ENDIF !feeds:disableRSS -->
+					<!-- ENDIF @last -->
 
-			
-			</span>
-		<!-- IF !@last --><i class='hidden'>breadcrumb link</i></a><!-- ENDIF !@last -->
-	</li>
-	{{{end}}}
-</ol>
+				
+				</span>
+			<!-- IF !@last --><i class='hidden'>breadcrumb link</i></a><!-- ENDIF !@last -->
+		</li>
+		{{{end}}}
+	</ol>
+</nav>
 <!-- ELSE -->
 <section class="digg-information">
     <header>Välkommen till Sveriges dataportals community!</header>
