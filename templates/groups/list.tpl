@@ -11,13 +11,13 @@
 			<button data-openmodal class="btn btn-primary" data-action="new"><i class="fa fa-plus"></i> [[groups:new_group]]</button>
 			<!-- ENDIF allowGroupCreation -->
 		</div>
-		<div class="col-lg-8">
+	<!--	<div class="col-lg-8">
 			<div class="row flex--justify-end">
             	<div class="col-xs-7 col-md-5 text-left">
 					<div class="input-group">
-						<label for='group-search' class='hidden'>Group Search</label>
-						<input id="group-search" type="text" class="form-control" placeholder="[[global:search]]" name="query" value="" id="search-text">
-						<span id="search-button" class="input-group-addon search-button"><i class="fa fa-search"></i></span>
+						<label for='search-text' class='hidden'>Group Search</label>
+						<input type="text" class="form-control" placeholder="[[global:search]]" name="query" value="" id="search-text">
+						<span class="input-group-addon search-button"><i class="fa fa-search"></i></span>
 					</div>
 				</div>
 				<div class="col-xs-5 col-md-3 text-left">
@@ -28,7 +28,7 @@
 					</select>
 				</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 
 	<hr />

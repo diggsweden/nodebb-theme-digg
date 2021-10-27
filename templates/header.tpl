@@ -46,7 +46,7 @@
 				<img src="/plugins/nodebb-theme-digg/images/community_bg.jpg" alt="" />
 			</div>
 			<!-- ENDIF breadcrumbs.length -->
-			<nav class="navbar navbar-default header" id="header-menu" component="navbar" aria-label="[[global:aria-main-navigation]]">
+			<nav class="navbar navbar-default header" id="header-menu" data-component="navbar" aria-label="[[global:aria-main-navigation]]">
 				<div class="container">
 					<!-- IMPORT partials/menu.tpl -->
 				</div>

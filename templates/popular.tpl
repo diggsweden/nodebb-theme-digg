@@ -20,10 +20,10 @@
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 				{selectedTerm.name} <span class="caret"></span>
 				</button>
-				<ul data-trapfocus class="dropdown-menu" role="navigation">
+				<ul data-trapfocus class="dropdown-menu" role="menu">
 					{{{each terms}}}
 					<li role="presentation" class="category">
-						<a role="menu-item" href="{config.relative_path}/{terms.url}"><i class="fa fa-fw <!-- IF terms.selected -->fa-check<!-- ENDIF terms.selected -->"></i>{terms.name}</a>
+						<a role="menuitem" href="{config.relative_path}/{terms.url}"><i class="fa fa-fw <!-- IF terms.selected -->fa-check<!-- ENDIF terms.selected -->"></i>{terms.name}</a>
 					</li>
 					{{{end}}}
 				</ul>
@@ -33,10 +33,10 @@
 				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					<span class="visible-sm-inline visible-md-inline visible-lg-inline">{selectedFilter.name}</span><span class="visible-xs-inline"><i class="fa fa-fw {selectedFilter.icon}"></i></span> <span class="caret"></span>
 				</button>
-				<ul data-trapfocus class="dropdown-menu" role="navigation">
+				<ul data-trapfocus class="dropdown-menu" role="menu">
 					{{{each filters}}}
 					<li role="presentation" class="category {{{if filters.selected}}}selected{{{end}}}">
-						<a role="menu-item" href="{config.relative_path}/{filters.url}"><i class="fa fa-fw <!-- IF filters.selected -->fa-check<!-- ENDIF filters.selected -->"></i>{filters.name}</a>
+						<a role="menuitem" href="{config.relative_path}/{filters.url}"><i class="fa fa-fw <!-- IF filters.selected -->fa-check<!-- ENDIF filters.selected -->"></i>{filters.name}</a>
 					</li>
 					{{{end}}}
 				</ul>
