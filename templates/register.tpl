@@ -16,6 +16,10 @@
 						<span class="help-block">[[register:help.email]]</span>
 					</div>
 				</div>
+				<div class="email-validate-container">
+					<input class="form-control" type="text" name="email-validate" id="email-validate" autocorrect="off" autocapitalize="off" tabindex="-1"/>
+					<span class="register-feedback" id="email-validate-notify"></span>
+				</div>
 				<div class="form-group">
 					<label for="username" class="col-lg-4 control-label">[[register:username]]</label>
 					<div class="col-lg-8">

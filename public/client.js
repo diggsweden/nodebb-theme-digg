@@ -42,6 +42,7 @@ define('forum/register', [
 
     Register.init = function () {
         const email = $('#email');
+        const email_validate = $('#email-validate');
         const username = $('#username');
         const password = $('#password');
         const password_confirm = $('#password-confirm');
@@ -92,6 +93,7 @@ define('forum/register', [
             validatePasswordConfirm(password.val(), password_confirm.val());
             validateUsername(username.val(), callback);
             validateEmail(email.val(), callback);
+            validateEmailValidate(email_validate.val(), callback);
         }
 
         // Guard against caps lock
@@ -149,43 +151,40 @@ define('forum/register', [
         });
 
         // Set initial focus
-        $('#username').focus();
+        $('#email').focus();
     };
+    function validateEmailValidate(email, callback) {
+        const email_validate_notify = $('#email-validate-notify');
+        if (email == "") {
+            showSuccess(email_validate_notify, successIcon)
+        }
+        else {
+            showError(email_validate_notify, 'ERROR validation email not valid')
+        }
+        callback();
+    }
     function validateEmail(email, callback) {
-        console.log(email)
         callback = callback || function () { };
 
         const email_notify = $('#email-notify');
-        const emailslug = slugify(email);
+        // const emailslug = slugify(email);
         var emailIsValid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
-        console.log(emailIsValid)
 
         if (!emailIsValid) {
             showError(email_notify, '[[error:invalid-email]]');
         } else {
+            // Promise.allSettled([
+            //     api.head(`/users/email/${email}`, {})
+            // ]).then((results) => {
+            //     console.log('results are in', results)
+            //     if (results.every(obj => obj.status === 'rejected')) {
             showSuccess(email_notify, successIcon);
+            //     } else {
+            //         showError(email_notify, '[[error:username-taken]]');
+            //     }
+            //     callback();
+            // });
         }
-
-        // if (username.length < ajaxify.data.minimumUsernameLength || userslug.length < ajaxify.data.minimumUsernameLength) {
-        //     showError(username_notify, '[[error:username-too-short]]');
-        // } else if (username.length > ajaxify.data.maximumUsernameLength) {
-        //     showError(username_notify, '[[error:username-too-long]]');
-        // } else if (!utils.isUserNameValid(username) || !userslug) {
-        //     showError(username_notify, '[[error:invalid-username]]');
-        // } else {
-        //     Promise.allSettled([
-        //         api.head(`/users/bySlug/${username}`, {}),
-        //         api.head(`/groups/${username}`, {}),
-        //     ]).then((results) => {
-        //         if (results.every(obj => obj.status === 'rejected')) {
-        //             showSuccess(username_notify, successIcon);
-        //         } else {
-        //             showError(username_notify, '[[error:username-taken]]');
-        //         }
-
-        //         callback();
-        //     });
-        // }
     }
 
     function validateUsername(username, callback) {
