@@ -156,12 +156,12 @@ define('forum/register', [
         callback = callback || function () { };
 
         const email_notify = $('#email-notify');
-        const userslug = slugify(email);
+        const emailslug = slugify(email);
         var emailIsValid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)
         console.log(emailIsValid)
 
         if (!emailIsValid) {
-            showError(email_notify, 'Icket bra epost');
+            showError(email_notify, '[[error:invalid-email]]');
         } else {
             showSuccess(email_notify, successIcon);
         }
