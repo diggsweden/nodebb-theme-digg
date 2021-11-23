@@ -66,6 +66,12 @@ define("forum/register", [
       }
     });
 
+    firstName.on("blur", function () {
+      if (firstName.val().length) {
+        validateFirstName(firstName.val());
+      }
+    });
+
     // Update the "others can mention you via" text
     username.on("keyup", function () {
       $("#yourUsername").text(
@@ -95,10 +101,11 @@ define("forum/register", [
       validationError = false;
       validatePassword(password.val(), password_confirm.val());
       validatePasswordConfirm(password.val(), password_confirm.val());
-      validateUsername(username.val(), callback);
-      validateEmail(email.val(), callback);
-      validateEmailValidate(email_validate.val(), callback);
-      validateFirstName(firstName.val(), callback);
+      validateUsername(username.val());
+      validateEmail(email.val());
+      validateEmailValidate(email_validate.val());
+      validateFirstName(firstName.val());
+      callback();
     }
 
     // Guard against caps lock
@@ -108,88 +115,83 @@ define("forum/register", [
     );
 
     register.on("click", function (e) {
+
+      e.preventDefault();
       const registerBtn = $(this);
       const errorEl = $("#register-error-notify");
       errorEl.addClass("hidden");
-      e.preventDefault();
       validateForm(function () {
-        console.log(validationError)
-        if (validationError) {
-          return;
-        }
-
-        registerBtn.addClass("disabled");
-
-        registerBtn.parents("form").ajaxSubmit({
-          headers: {
-            "x-csrf-token": config.csrf_token,
-          },
-          success: function (data) {
-            registerBtn.removeClass("disabled");
-            if (!data) {
-              return;
-            }
-            if (data.next) {
-              const pathname = utils.urlToLocation(data.next).pathname;
-
-              const params = utils.params({ url: data.next });
-              params.registered = true;
-              const qs = decodeURIComponent($.param(params));
-
-              window.location.href = pathname + "?" + qs;
-            } else if (data.message) {
-              translator.translate(data.message, function (msg) {
-                bootbox.alert(msg);
-                ajaxify.go("/");
-              });
-            }
-          },
-          error: function (data) {
-            translator.translate(
-              data.responseText,
-              config.defaultLang,
-              function (translated) {
-                if (data.status === 403 && data.responseText === "Forbidden") {
-                  window.location.href =
-                    config.relative_path + "/register?error=csrf-invalid";
-                } else {
-                  errorEl.find("p").text(translated);
-                  errorEl.removeClass("hidden");
-                  registerBtn.removeClass("disabled");
-                }
+        if (!validationError) {
+          registerBtn.addClass("disabled");
+          registerBtn.parents("form").ajaxSubmit({
+            headers: {
+              "x-csrf-token": config.csrf_token,
+            },
+            success: function (data) {
+              registerBtn.removeClass("disabled");
+              if (!data) {
+                return;
               }
-            );
-          },
-        });
+              if (data.next) {
+                const pathname = utils.urlToLocation(data.next).pathname;
+
+                const params = utils.params({ url: data.next });
+                params.registered = true;
+                const qs = decodeURIComponent($.param(params));
+
+                window.location.href = pathname + "?" + qs;
+              } else if (data.message) {
+                translator.translate(data.message, function (msg) {
+                  bootbox.alert(msg);
+                  ajaxify.go("/");
+                });
+              }
+            },
+            error: function (data) {
+              translator.translate(
+                data.responseText,
+                config.defaultLang,
+                function (translated) {
+                  if (data.status === 403 && data.responseText === "Forbidden") {
+                    window.location.href =
+                      config.relative_path + "/register?error=csrf-invalid";
+                  } else {
+                    errorEl.find("p").text(translated);
+                    errorEl.removeClass("hidden");
+                    registerBtn.removeClass("disabled");
+                  }
+                }
+              );
+            },
+          }
+          )
+        }
+        return false;
       });
     });
 
     // Set initial focus
     $("#email").focus();
   };
-  function validateFirstName(firstName, callback) {
+  function validateFirstName(firstName) {
     const firstName_notify = $("#firstName-notify");
-    console.log(firstName)
     if (firstName == "jagArManniska") {
       showSuccess(firstName_notify, successIcon);
     } else {
-      showError(firstName_notify, "ERROR validation fist name not valid");
+      showError(firstName_notify, "");
     }
-    callback();
   }
 
-  function validateEmailValidate(email, callback) {
+  function validateEmailValidate(email) {
     const email_validate_notify = $("#email-validate-notify");
     if (email == "") {
       showSuccess(email_validate_notify, successIcon);
     } else {
       showError(email_validate_notify, "ERROR validation email not valid");
     }
-    callback();
   }
 
-  function validateEmail(email, callback) {
-    callback = callback || function () { };
+  function validateEmail(email) {
 
     const email_notify = $("#email-notify");
     // const emailslug = slugify(email);
@@ -200,23 +202,11 @@ define("forum/register", [
     if (!emailIsValid) {
       showError(email_notify, "[[error:invalid-email]]");
     } else {
-      // Promise.allSettled([
-      //     api.head(`/users/email/${email}`, {})
-      // ]).then((results) => {
-      //     console.log('results are in', results)
-      //     if (results.every(obj => obj.status === 'rejected')) {
       showSuccess(email_notify, successIcon);
-      //     } else {
-      //         showError(email_notify, '[[error:username-taken]]');
-      //     }
-      //     callback();
-      // });
     }
   }
 
-  function validateUsername(username, callback) {
-    callback = callback || function () { };
-
+  function validateUsername(username) {
     const username_notify = $("#username-notify");
     const userslug = slugify(username);
     if (
@@ -238,8 +228,6 @@ define("forum/register", [
         } else {
           showError(username_notify, "[[error:username-taken]]");
         }
-
-        callback();
       });
     }
   }

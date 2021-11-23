@@ -28,7 +28,7 @@
 						<span class="help-block">[[register:help.username_restrictions, {minimumUsernameLength}, {maximumUsernameLength}]]</span>
 					</div>
 				</div>
-                <div class="form-group">
+                <div class="form-group firstNameContainer">
                     <label for="firstName" class="col-lg-4 control-label">[[register:firstName]]</label>
 					<div class="col-lg-8">
 						<input class="form-control" type="text" placeholder="[[register:firstName_placeholder]]" name="firstName" id="firstName" autocorrect="off" autocapitalize="off" autocomplete="off" value="jagArManniska" />
