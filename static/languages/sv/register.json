@@ -2,5 +2,6 @@
     "gdpr_agree_data": "Jag har tagit del av",
     "gdpr_agree_email": "Jag förstår att sammanfattningar och notiser kan skickas från detta forum via e-post.",
     "interstitial.intro-new": "Vi vill ha lite ytterligare information innan vi kan skapa ditt konto...",
-    "interstitial.errors-found": "Vänligen granska den angivna informationen."
+    "interstitial.errors-found": "Vänligen granska den angivna informationen.",
+    "firstName": "Förnamn"
 }
