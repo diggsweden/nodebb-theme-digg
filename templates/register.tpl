@@ -31,7 +31,7 @@
                 <div class="form-group firstNameContainer">
                     <label for="firstName" class="col-lg-4 control-label">[[register:firstName]]</label>
 					<div class="col-lg-8">
-						<input class="form-control" type="text" placeholder="[[register:firstName_placeholder]]" name="firstName" id="firstName" autocorrect="off" autocapitalize="off" autocomplete="off" value="jagArManniska" />
+						<input class="form-control" type="text" placeholder="[[register:firstName_placeholder]]" name="firstName" id="firstName" autocorrect="off" autocapitalize="off" autocomplete="off" value="jagArManniska" tabindex="-1" />
 						<span class="register-feedback" id="firstName-notify"></span>
 					</div>
                 </div>
