@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="email-validate-container">
-					<input class="form-control" type="text" name="email-validate" id="email-validate" autocorrect="off" autocapitalize="off" tabindex="-1"/>
+					<input class="form-control" type="text" name="email-validate" id="email-validate" autocorrect="off" autocapitalize="off" tabindex="-1" autocomplete="off"/>
 					<span class="register-feedback" id="email-validate-notify"></span>
 				</div>
 				<div class="form-group">
