@@ -6,9 +6,9 @@
 			<!-- IF !disableCustomUserSkins -->
 			<h4>[[user:select-skin]]</h4>
 			<div class="well">
-				<select class="form-control" id="bootswatchSkin" data-property="bootswatchSkin">
+				<select data-keypress-enter data-trapfocus class="form-control" id="bootswatchSkin" data-property="bootswatchSkin">
 					{{{each bootswatchSkinOptions}}}
-					<option value="{bootswatchSkinOptions.value}" <!-- IF bootswatchSkinOptions.selected -->selected<!-- ENDIF bootswatchSkinOptions.selected -->>{bootswatchSkinOptions.name}</option>
+					<option data-trapfocus value="{bootswatchSkinOptions.value}" <!-- IF bootswatchSkinOptions.selected -->selected<!-- ENDIF bootswatchSkinOptions.selected -->>{bootswatchSkinOptions.name}</option>
 					{{{end}}}
 				</select>
 			</div>
@@ -22,7 +22,7 @@
 					<select id="select-homepage" class="form-control" data-property="homePageRoute">
 						<option value="none">None</option>
 						{{{each homePageRoutes}}}
-						<option value="{homePageRoutes.route}" <!-- IF homePageRoutes.selected -->selected="1"<!-- ENDIF homePageRoutes.selected -->>{homePageRoutes.name}</option>
+						<option value="{homePajRoutes.route}" <!-- IF homePageRoutes.selected -->selected="1"<!-- ENDIF homePageRoutes.selected -->>{homePageRoutes.name}</option>
 						{{{end}}}
 					</select>
 					<p class="help-block">[[user:homepage_description]]</p>
