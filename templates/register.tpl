@@ -17,7 +17,7 @@
 					</div>
 				</div>
 				<div class="email-validate-container">
-					<input class="form-control" type="text" name="email-validate" id="email-validate" autocorrect="off" autocapitalize="off" tabindex="-1" autocomplete="off"/>
+					<input class="form-control" type="text" name="email-validate" id="email-validate" autocorrect="off" autocapitalize="off" tabindex="-1" autocomplete="new-password"/>
 					<span class="register-feedback" id="email-validate-notify"></span>
 				</div>
 				<div class="form-group">
@@ -31,7 +31,7 @@
                 <div class="form-group firstNameContainer">
                     <label for="firstName" class="col-lg-4 control-label">[[register:firstName]]</label>
 					<div class="col-lg-8">
-						<input class="form-control" type="text" placeholder="[[register:firstName_placeholder]]" name="firstName" id="firstName" autocorrect="off" autocapitalize="off" autocomplete="off" value="jagArManniska" tabindex="-1" />
+						<input class="form-control" type="text" placeholder="[[register:firstName_placeholder]]" name="firstName" id="firstName" autocorrect="off" autocapitalize="off" autocomplete="new-password" value="jagArManniska" tabindex="-1" />
 						<span class="register-feedback" id="firstName-notify"></span>
 					</div>
                 </div>
