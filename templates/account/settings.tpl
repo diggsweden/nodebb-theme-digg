@@ -6,9 +6,9 @@
 			<!-- IF !disableCustomUserSkins -->
 			<h4>[[user:select-skin]]</h4>
 			<div class="well">
-				<select data-keypress-enter data-trapfocus class="form-control" id="bootswatchSkin" data-property="bootswatchSkin">
+				<select class="form-control" id="bootswatchSkin" data-property="bootswatchSkin">
 					{{{each bootswatchSkinOptions}}}
-					<option data-trapfocus value="{bootswatchSkinOptions.value}" <!-- IF bootswatchSkinOptions.selected -->selected<!-- ENDIF bootswatchSkinOptions.selected -->>{bootswatchSkinOptions.name}</option>
+					<option value="{bootswatchSkinOptions.value}" <!-- IF bootswatchSkinOptions.selected -->selected<!-- ENDIF bootswatchSkinOptions.selected -->>{bootswatchSkinOptions.name}</option>
 					{{{end}}}
 				</select>
 			</div>
