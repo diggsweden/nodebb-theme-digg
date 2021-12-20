@@ -264,6 +264,7 @@ define([], () => {
                 $(el).keypress(e => {
                     if (e.which == 13) {
                         el.click();
+                        console.log('enter pressed')
                     }
                 })
             }

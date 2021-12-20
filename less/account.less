@@ -34,7 +34,17 @@
     .cover {
         .controls {
             max-width: 1050px;
+            .upload:focus,
+            .remove:focus {
+                outline-color: #ededed !important;
+            }
         }
+    }
+
+    #account-menu-button:focus {
+        outline: 3px dotted #2b2a29 !important;
+        outline-offset: 2px;
+        border: 2px dotted #ededed;
     }
 
     .show-danger .form-feedback {

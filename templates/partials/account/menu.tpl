@@ -1,5 +1,5 @@
 <div class="btn-group account-fab bottom-sheet">
-	<button type="button" class="fab dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	<button id="account-menu-button"  type="button" class="fab dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 		<i class="fa fa-ellipsis-v"></i>
 		<i class='hidden'>Account dropdown-toggle</i>
 	</button>

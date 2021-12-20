@@ -22,7 +22,7 @@
 					<select id="select-homepage" class="form-control" data-property="homePageRoute">
 						<option value="none">None</option>
 						{{{each homePageRoutes}}}
-						<option value="{homePageRoutes.route}" <!-- IF homePageRoutes.selected -->selected="1"<!-- ENDIF homePageRoutes.selected -->>{homePageRoutes.name}</option>
+						<option value="{homePajRoutes.route}" <!-- IF homePageRoutes.selected -->selected="1"<!-- ENDIF homePageRoutes.selected -->>{homePageRoutes.name}</option>
 						{{{end}}}
 					</select>
 					<p class="help-block">[[user:homepage_description]]</p>
