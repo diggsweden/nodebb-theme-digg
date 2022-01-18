@@ -23,7 +23,7 @@
 				<ul data-trapfocus class="dropdown-menu" role="menu">
 					{{{each terms}}}
 					<li role="presentation" class="category">
-						<a role="menuitem" href="{config.relative_path}/{terms.url}"><i class="fa fa-fw <!-- IF terms.selected -->fa-check<!-- ENDIF terms.selected -->"></i>{terms.name}</a>
+						<a class="dropdown-links-0" role="menuitem" href="{config.relative_path}/{terms.url}"><i class="fa fa-fw <!-- IF terms.selected -->fa-check<!-- ENDIF terms.selected -->"></i>{terms.name}</a>
 					</li>
 					{{{end}}}
 				</ul>
@@ -36,7 +36,7 @@
 				<ul data-trapfocus class="dropdown-menu" role="menu">
 					{{{each filters}}}
 					<li role="presentation" class="category {{{if filters.selected}}}selected{{{end}}}">
-						<a role="menuitem" href="{config.relative_path}/{filters.url}"><i class="fa fa-fw <!-- IF filters.selected -->fa-check<!-- ENDIF filters.selected -->"></i>{filters.name}</a>
+						<a class="dropdown-links-1" role="menuitem" href="{config.relative_path}/{filters.url}"><i class="fa fa-fw <!-- IF filters.selected -->fa-check<!-- ENDIF filters.selected -->"></i>{filters.name}</a>
 					</li>
 					{{{end}}}
 				</ul>
