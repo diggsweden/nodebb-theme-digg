@@ -12,28 +12,6 @@ You can listen for page changes by writing something like this:
   });
 */
 
-const handelFocus = (index, searchParams) => {
-
-
-  var params = new URLSearchParams(searchParams)
-
-  params.set('focusMenu', index)
-
-  console.log(params.toString())
-  window.location.search = params.toString()
-  // if (window.location.href.indexOf('?') > -1) {
-  //   if (window.location.href.indexOf('&focusMenu=') > -1) {
-
-  //   }
-  //   var url = window.location.href + "&focusMenu=" + index;
-
-  // } else {
-  //   console.log('focus fanns inte')
-  //   var url = window.location.href + "?focusMenu=" + index;
-  // }
-  // window.location = url;
-}
-
 require(["tabbing"], (tabbing) => {
   $(document).ready(function () {
     $(window).on("action:ajaxify.end", function (event, data) {
@@ -47,40 +25,33 @@ require(["tabbing"], (tabbing) => {
 
       tabbing();
 
-      $(".dropdown-toggle").each((i, button) => {
+      //dropdown focus fix
+      $(".filter-focus").each((i, button) => {
         if (window.location.href.indexOf('focusMenu=' + i) > -1) {
           button.focus();
         }
-        var dropdownLinks = $(".dropdown-links-" + i)
-        // for (const [key, value] of Object.entries(dropdownLinks)) {
-        //   console.log(`${key}: ${value}`);
-        // }
-        dropdownLinks.each(function () {
+        var menuListElements = button.parentNode.getElementsByTagName('ul')[0].children
+        Array.from(menuListElements).forEach((li) => {
+          var aTag = li.children[0]
+          var href = li.children[0].getAttribute('href')
 
-          var searchParams = decodeURI($(this).attr('href')).replace('/popular', '')
-          $(this).on('click', () => handelFocus(i, searchParams));
-          $(this).on('keypress', () => {
-            if (event.which == 13)
-              handelFocus(i, searchParams)
-          });
+          if (href.indexOf('?') > -1) {
+            var stringArr = href.split('?')
+            var path = stringArr[0]
+            var searchParams = stringArr[1]
+          }
+          else {
+            var searchParams = ''
+            var path = href
+          }
+
+          var params = new URLSearchParams(searchParams)
+          params.set('focusMenu', i)
+
+          var newHref = path + '?' + params.toString()
+          aTag.setAttribute('href', newHref)
         })
-
-        // dropdownLinks.each(link => {
-
-        //   console.log('This is the lin' + link)
-        //   link.on('click', () => handelFocus(i, link.href));
-        //   link.on('keypress', () => {
-        //     if (event.which == 13)
-        //       handelFocus(i, link.href)
-        //   });
-        // })
-
       })
-
-
-
-
-
     });
   });
 });
