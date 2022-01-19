@@ -12,6 +12,32 @@ You can listen for page changes by writing something like this:
   });
 */
 
+const setFilterFocus = () => {
+  $(".filter-focus").each((i, button) => {
+    var menuListElements = button.parentNode.getElementsByTagName('ul')[0].children
+    Array.from(menuListElements).forEach((li) => {
+      var aTag = li.children[0]
+      var href = li.children[0].getAttribute('href')
+
+      if (href.indexOf('?') > -1) {
+        var stringArr = href.split('?')
+        var path = stringArr[0]
+        var searchParams = stringArr[1]
+      }
+      else {
+        var searchParams = ''
+        var path = href
+      }
+
+      var params = new URLSearchParams(searchParams)
+      params.set('focusMenu', i)
+
+      var newHref = path + '?' + params.toString()
+      aTag.setAttribute('href', newHref)
+    })
+  })
+}
+
 require(["tabbing"], (tabbing) => {
   $(document).ready(function () {
     $(window).on("action:ajaxify.end", function (event, data) {
@@ -24,34 +50,19 @@ require(["tabbing"], (tabbing) => {
       }
 
       tabbing();
-
-      //dropdown focus fix
       $(".filter-focus").each((i, button) => {
         if (window.location.href.indexOf('focusMenu=' + i) > -1) {
           button.focus();
         }
-        var menuListElements = button.parentNode.getElementsByTagName('ul')[0].children
-        Array.from(menuListElements).forEach((li) => {
-          var aTag = li.children[0]
-          var href = li.children[0].getAttribute('href')
-
-          if (href.indexOf('?') > -1) {
-            var stringArr = href.split('?')
-            var path = stringArr[0]
-            var searchParams = stringArr[1]
-          }
-          else {
-            var searchParams = ''
-            var path = href
-          }
-
-          var params = new URLSearchParams(searchParams)
-          params.set('focusMenu', i)
-
-          var newHref = path + '?' + params.toString()
-          aTag.setAttribute('href', newHref)
-        })
       })
+      //dropdown focus fix
+      setFilterFocus();
+      $('#categoryButton').on('click', () => {
+        setTimeout(() => {
+          setFilterFocus('category');
+        }, 500);
+      })
+
     });
   });
 });
