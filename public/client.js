@@ -11,6 +11,32 @@ You can listen for page changes by writing something like this:
     console.log('I am now at: ' + url);
   });
 */
+const updateHrefWithFocus = (href, i) => {
+
+  if (href.indexOf('?') > -1) {
+    var stringArr = href.split('?')
+    var path = stringArr[0]
+    var searchParams = stringArr[1]
+  }
+  else {
+    var searchParams = ''
+    var path = href
+  }
+
+  var params = new URLSearchParams(searchParams)
+  params.set('focusMenu', i)
+  var newHref = path + '?' + params.toString()
+  return newHref
+}
+
+const setUserListMenuFocus = () => {
+  Array.from($(".user-list-menu").children()).forEach((li, i) => {
+    var aTag = li.children[0]
+    var href = aTag.getAttribute('href')
+    var newHref = updateHrefWithFocus(href, i)
+    aTag.setAttribute('href', newHref)
+  })
+}
 
 const setFilterFocus = () => {
   $(".filter-focus").each((i, button) => {
@@ -18,21 +44,7 @@ const setFilterFocus = () => {
     Array.from(menuListElements).forEach((li) => {
       var aTag = li.children[0]
       var href = li.children[0].getAttribute('href')
-
-      if (href.indexOf('?') > -1) {
-        var stringArr = href.split('?')
-        var path = stringArr[0]
-        var searchParams = stringArr[1]
-      }
-      else {
-        var searchParams = ''
-        var path = href
-      }
-
-      var params = new URLSearchParams(searchParams)
-      params.set('focusMenu', i)
-
-      var newHref = path + '?' + params.toString()
+      var newHref = updateHrefWithFocus(href, i)
       aTag.setAttribute('href', newHref)
     })
   })
@@ -55,6 +67,14 @@ require(["tabbing"], (tabbing) => {
           button.focus();
         }
       })
+
+      Array.from($(".user-list-menu").children()).forEach((li, i) => {
+        if (window.location.href.indexOf('focusMenu=' + i) > -1) {
+          li.children[0].focus();
+        }
+      })
+
+      setUserListMenuFocus();
       //dropdown focus fix
       setFilterFocus();
       $('#categoryButton').on('click', () => {
