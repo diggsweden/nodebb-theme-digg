@@ -13,7 +13,7 @@
         <div class="pull-right">
 
             <div class="btn-group">
-                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                <button type="button" class="btn btn-default dropdown-toggle filter-focus" data-toggle="dropdown">
                     <span
                         class="visible-sm-inline visible-md-inline visible-lg-inline">{selectedFilter.name}</span><span
                         class="visible-xs-inline"><i class="fa fa-fw {selectedFilter.icon}"></i></span> <span
