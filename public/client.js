@@ -11,43 +11,8 @@ You can listen for page changes by writing something like this:
     console.log('I am now at: ' + url);
   });
 */
-const updateHrefWithFocus = (href, i) => {
-  if (href.indexOf("?") > -1) {
-    var stringArr = href.split("?");
-    var path = stringArr[0];
-    var searchParams = stringArr[1];
-  } else {
-    var searchParams = "";
-    var path = href;
-  }
 
-  var params = new URLSearchParams(searchParams);
-  params.set("focusMenu", i);
-  var newHref = path + "?" + params.toString();
-  return newHref;
-};
-
-const setUserListMenuFocus = () => {
-  Array.from($(".user-list-menu").children()).forEach((li, i) => {
-    var aTag = li.children[0];
-    var href = aTag.getAttribute("href");
-    var newHref = updateHrefWithFocus(href, i);
-    aTag.setAttribute("href", newHref);
-  });
-};
-
-const setFilterFocus = () => {
-  $(".filter-focus").each((i, button) => {
-    var menuListElements =
-      button.parentNode.getElementsByTagName("ul")[0].children;
-    Array.from(menuListElements).forEach((li) => {
-      var aTag = li.children[0];
-      var href = li.children[0].getAttribute("href");
-      var newHref = updateHrefWithFocus(href, i);
-      aTag.setAttribute("href", newHref);
-    });
-  });
-};
+("use strict");
 
 require(["digg_tabbing"], (tabbing) => {
   $(document).ready(function () {
@@ -60,7 +25,8 @@ require(["digg_tabbing"], (tabbing) => {
         $(".digg-divider").show();
       }
 
-      tabbing();
+      tabbing.init();
+
       $(".filter-focus").each((i, button) => {
         if (window.location.href.indexOf("focusMenu=" + i) > -1) {
           button.focus();
@@ -73,9 +39,9 @@ require(["digg_tabbing"], (tabbing) => {
         }
       });
 
-      setUserListMenuFocus();
+      tabbing.setUserListMenuFocus();
       //dropdown focus fix
-      setFilterFocus();
+      tabbing.setFilterFocus();
       $("#categoryButton").on("click", () => {
         setTimeout(() => {
           setFilterFocus("category");
@@ -84,8 +50,6 @@ require(["digg_tabbing"], (tabbing) => {
     });
   });
 });
-
-("use strict");
 
 define("forum/register", [
   "translator",

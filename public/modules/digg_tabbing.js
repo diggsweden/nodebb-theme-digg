@@ -9,7 +9,48 @@
 
 define([], () => {
   "use-strict";
-  return () => {
+
+  const updateHrefWithFocus = (href, i) => {
+    if (href.indexOf("?") > -1) {
+      var stringArr = href.split("?");
+      var path = stringArr[0];
+      var searchParams = stringArr[1];
+    } else {
+      var searchParams = "";
+      var path = href;
+    }
+
+    var params = new URLSearchParams(searchParams);
+    params.set("focusMenu", i);
+    var newHref = path + "?" + params.toString();
+    return newHref;
+  };
+
+  const setUserListMenuFocus = () => {
+    Array.from($(".user-list-menu").children()).forEach((li, i) => {
+      var aTag = li.children[0];
+      if (!aTag) return;
+      var href = aTag.getAttribute("href");
+      var newHref = updateHrefWithFocus(href, i);
+      aTag.setAttribute("href", newHref);
+    });
+  };
+
+  const setFilterFocus = () => {
+    $(".filter-focus").each((i, button) => {
+      var menuListElements =
+        button.parentNode.getElementsByTagName("ul")[0].children;
+      Array.from(menuListElements).forEach((li) => {
+        var aTag = li.children[0];
+        if (!aTag) return;
+        var href = li.children[0].getAttribute("href");
+        var newHref = updateHrefWithFocus(href, i);
+        aTag.setAttribute("href", newHref);
+      });
+    });
+  };
+
+  function init() {
     require(["digg_utils"], (utils) => {
       /* #region variables */
       const focusableElements =
@@ -329,6 +370,7 @@ define([], () => {
        * @param {*} element trap focus here
        */
       function trapFocus(element, focusableEl, nextToFocus, skipToMainContent) {
+        if (!element) return;
         const focusable = focusableEl
           ? focusableEl
           : element.querySelectorAll(focusableElements);
@@ -578,5 +620,11 @@ define([], () => {
       SetHandlers();
       trapFocus(userControls[0], null, $("#user_label"));
     });
+  }
+
+  return {
+    init,
+    setUserListMenuFocus,
+    setFilterFocus,
   };
 });
