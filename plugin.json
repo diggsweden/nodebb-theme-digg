@@ -14,8 +14,8 @@
   ],
   "modules": {
     "pulling.js": "node_modules/pulling/build/pulling-drawer.js",
-    "utils.js": "public/modules/utils.js",
-    "tabbing.js": "public/modules/tabbing.js",
+    "digg_utils.js": "public/modules/digg_utils.js",
+    "digg_tabbing.js": "public/modules/digg_tabbing.js",
     "../admin/plugins/persona.js": "public/admin.js",
     "persona/quickreply.js": "../nodebb-theme-persona/public/modules/quickreply.js",
     "../client/account/theme.js": "public/settings.js"

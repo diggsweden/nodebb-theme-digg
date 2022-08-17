@@ -12,45 +12,44 @@ You can listen for page changes by writing something like this:
   });
 */
 const updateHrefWithFocus = (href, i) => {
-
-  if (href.indexOf('?') > -1) {
-    var stringArr = href.split('?')
-    var path = stringArr[0]
-    var searchParams = stringArr[1]
-  }
-  else {
-    var searchParams = ''
-    var path = href
+  if (href.indexOf("?") > -1) {
+    var stringArr = href.split("?");
+    var path = stringArr[0];
+    var searchParams = stringArr[1];
+  } else {
+    var searchParams = "";
+    var path = href;
   }
 
-  var params = new URLSearchParams(searchParams)
-  params.set('focusMenu', i)
-  var newHref = path + '?' + params.toString()
-  return newHref
-}
+  var params = new URLSearchParams(searchParams);
+  params.set("focusMenu", i);
+  var newHref = path + "?" + params.toString();
+  return newHref;
+};
 
 const setUserListMenuFocus = () => {
   Array.from($(".user-list-menu").children()).forEach((li, i) => {
-    var aTag = li.children[0]
-    var href = aTag.getAttribute('href')
-    var newHref = updateHrefWithFocus(href, i)
-    aTag.setAttribute('href', newHref)
-  })
-}
+    var aTag = li.children[0];
+    var href = aTag.getAttribute("href");
+    var newHref = updateHrefWithFocus(href, i);
+    aTag.setAttribute("href", newHref);
+  });
+};
 
 const setFilterFocus = () => {
   $(".filter-focus").each((i, button) => {
-    var menuListElements = button.parentNode.getElementsByTagName('ul')[0].children
+    var menuListElements =
+      button.parentNode.getElementsByTagName("ul")[0].children;
     Array.from(menuListElements).forEach((li) => {
-      var aTag = li.children[0]
-      var href = li.children[0].getAttribute('href')
-      var newHref = updateHrefWithFocus(href, i)
-      aTag.setAttribute('href', newHref)
-    })
-  })
-}
+      var aTag = li.children[0];
+      var href = li.children[0].getAttribute("href");
+      var newHref = updateHrefWithFocus(href, i);
+      aTag.setAttribute("href", newHref);
+    });
+  });
+};
 
-require(["tabbing"], (tabbing) => {
+require(["digg_tabbing"], (tabbing) => {
   $(document).ready(function () {
     $(window).on("action:ajaxify.end", function (event, data) {
       if (data.title === "[[pages:home]]") {
@@ -63,26 +62,25 @@ require(["tabbing"], (tabbing) => {
 
       tabbing();
       $(".filter-focus").each((i, button) => {
-        if (window.location.href.indexOf('focusMenu=' + i) > -1) {
+        if (window.location.href.indexOf("focusMenu=" + i) > -1) {
           button.focus();
         }
-      })
+      });
 
       Array.from($(".user-list-menu").children()).forEach((li, i) => {
-        if (window.location.href.indexOf('focusMenu=' + i) > -1) {
+        if (window.location.href.indexOf("focusMenu=" + i) > -1) {
           li.children[0].focus();
         }
-      })
+      });
 
       setUserListMenuFocus();
       //dropdown focus fix
       setFilterFocus();
-      $('#categoryButton').on('click', () => {
+      $("#categoryButton").on("click", () => {
         setTimeout(() => {
-          setFilterFocus('category');
+          setFilterFocus("category");
         }, 500);
-      })
-
+      });
     });
   });
 });
@@ -175,7 +173,6 @@ define("forum/register", [
     );
 
     register.on("click", function (e) {
-
       e.preventDefault();
       const registerBtn = $(this);
       const errorEl = $("#register-error-notify");
@@ -212,7 +209,10 @@ define("forum/register", [
                 data.responseText,
                 config.defaultLang,
                 function (translated) {
-                  if (data.status === 403 && data.responseText === "Forbidden") {
+                  if (
+                    data.status === 403 &&
+                    data.responseText === "Forbidden"
+                  ) {
                     window.location.href =
                       config.relative_path + "/register?error=csrf-invalid";
                   } else {
@@ -223,8 +223,7 @@ define("forum/register", [
                 }
               );
             },
-          }
-          )
+          });
         }
         return false;
       });
@@ -252,7 +251,6 @@ define("forum/register", [
   }
 
   function validateEmail(email) {
-
     const email_notify = $("#email-notify");
     // const emailslug = slugify(email);
     var emailIsValid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
@@ -365,8 +363,8 @@ define("forum/register", [
       const formEl = $('[component="register/local"]');
       const langEl = $(
         '<input type="hidden" name="userLang" value="' +
-        config.userLang +
-        '" />'
+          config.userLang +
+          '" />'
       );
 
       formEl.append(langEl);
@@ -375,4 +373,3 @@ define("forum/register", [
 
   return Register;
 });
-

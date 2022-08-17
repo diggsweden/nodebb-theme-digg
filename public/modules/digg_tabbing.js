@@ -10,7 +10,7 @@
 define([], () => {
   "use-strict";
   return () => {
-    require(["utils"], (utils) => {
+    require(["digg_utils"], (utils) => {
       /* #region variables */
       const focusableElements =
         'a[href]:not([disabled]):not(.hidden), button:not([disabled]), textarea:not([disabled]), input[type="text"]:not([disabled]), input[type="radio"]:not([disabled]), input[type="checkbox"]:not([disabled]), select:not([disabled])';
