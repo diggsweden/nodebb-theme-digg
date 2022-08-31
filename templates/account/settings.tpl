@@ -186,22 +186,11 @@
 			<div class="well">
 				{{{each notificationSettings}}}
 				<div class="row pad-lr-xxs-10">
-					<div class="form-group col-xs-7 hidden-xxs ">
-						<label for="{notificationSettings.name}">{notificationSettings.label}</label>
-					</div>
-					<div class="form-group col-xs-5 hidden-xxs">
-						<select id="{notificationSettings.name}" class="form-control" data-property="{notificationSettings.name}">
-							<option value="none" <!-- IF notificationSettings.none -->selected<!-- ENDIF notificationSettings.none -->>[[notifications:none]]</option>
-							<option value="notification" <!-- IF notificationSettings.notification -->selected<!-- ENDIF notificationSettings.notification -->>[[notifications:notification_only]]</option>
-							<option value="email" <!-- IF notificationSettings.email -->selected<!-- ENDIF notificationSettings.email -->>[[notifications:email_only]]</option>
-							<option value="notificationemail" <!-- IF notificationSettings.notificationemail -->selected<!-- ENDIF notificationSettings.notificationemail -->>[[notifications:notification_and_email]]</option>
-						</select>
-					</div>
 
-					<div class="form-group row visible-xxs-inline hidden-xs hidden-sm hidden-md hidden-lg margin-xxs-0">
-						<label class="margin-bot-xxs-0" for="{notificationSettings.name}-mobile">{notificationSettings.label}</label>
+					<div class="notification-explanation-div">
+						<label class="notification-label" for="{notificationSettings.name}">{notificationSettings.label}</label>
 					</div>
-					<div class="form-group row visible-xxs-inline hidden-xs hidden-sm hidden-md hidden-lg margin-bot-xxs-5">
+					<div class="notification-choice-div">
 						<select id="{notificationSettings.name}-mobile" class="form-control" data-property="{notificationSettings.name}">
 							<option value="none" <!-- IF notificationSettings.none -->selected<!-- ENDIF notificationSettings.none -->>[[notifications:none]]</option>
 							<option value="notification" <!-- IF notificationSettings.notification -->selected<!-- ENDIF notificationSettings.notification -->>[[notifications:notification_only]]</option>
@@ -209,6 +198,7 @@
 							<option value="notificationemail" <!-- IF notificationSettings.notificationemail -->selected<!-- ENDIF notificationSettings.notificationemail -->>[[notifications:notification_and_email]]</option>
 						</select>
 					</div>
+
 				</div>
 				{{{end}}}
 
