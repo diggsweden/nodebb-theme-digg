@@ -28,14 +28,14 @@
 	<header class="digg-navigation container">
 		<div class="digg-logo">
 			<a href="https://www.dataportal.se/sv">
-				<img src="/plugins/nodebb-theme-digg/images/dataportal_logo.svg" alt="Sveriges dataportal, DIGG - Myndigheten för digital förvaltning">
+				Sveriges Dataportal
 			</a>
 		</div>
 		<nav class="digg-menu" aria-label="[[global:aria-header-navigation]]">
-			<a href="https://www.dataportal.se/sv/datasets?q=&f=">[[header:search-data]]</a>
-			<a href="https://www.dataportal.se/sv/nyheter">[[header:news]]</a>
-			<a href="https://www.dataportal.se/sv/om-oss/">[[header:about]]</a>
-			<a href="/" class="active">Community</a>
+			<!-- <a href="https://www.dataportal.se/sv/datasets?q=&f=">[[header:search-data]]</a> -->
+			<!-- <a href="https://www.dataportal.se/sv/nyheter">[[header:news]]</a> -->
+			<!-- <a href="https://www.dataportal.se/sv/om-oss/">[[header:about]]</a> -->
+			<a href="https://www.dataportal.se">Tillbaka till Dataportalen</a>
 		</nav>
 	</header>
         <div id="banner" class="container">
