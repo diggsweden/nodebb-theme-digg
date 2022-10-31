@@ -51,9 +51,22 @@ body > .container {
             letter-spacing: -0.02em;
             text-decoration: none;
 
+            .digg-logo_community{
+                font-family: 'Ubuntu';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+            }
+
             &:hover {
                 color: #F49383;
             }
+        }
+
+        .digg-logo_space{
+            margin-right: 0;
+            margin-right: 0.75rem;
         }
     }
 
@@ -89,6 +102,13 @@ body > .container {
 
             &:hover {
                 border-bottom: 2px solid #cd7a6e;
+            }
+        }
+
+        .digg-menu_back--link{
+            display: none;
+            @media (min-width: 767px) {
+                display: inline-block;
             }
         }
     }
