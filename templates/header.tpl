@@ -28,7 +28,7 @@
 	<header class="digg-navigation container">
 		<div class="digg-logo">
 			<a href="https://www.dataportal.se/sv">
-				<span class="digg-logo_space">Sveriges Dataportal </span> <span class="digg-logo_space">|</span> <span class="digg-logo_community">COMMUNITY</span>
+				<span class="digg-logo_space">Sveriges Dataportal </span> <span class="digg-logo_space digg-logo_space__divider">|</span> <span class="digg-logo_community">COMMUNITY</span>
 			</a>
 		</div>
 		<nav class="digg-menu" aria-label="[[global:aria-header-navigation]]">

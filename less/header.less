@@ -42,6 +42,9 @@ body > .container {
 
     .digg-logo{
         a{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
             color: white;
             font-family: 'Ubuntu';
             font-style: normal;
@@ -51,22 +54,34 @@ body > .container {
             letter-spacing: -0.02em;
             text-decoration: none;
 
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+                align-items: flex-start;
+                font-size: 18px;
+            }
+
             .digg-logo_community{
                 font-family: 'Ubuntu';
                 font-style: normal;
                 font-weight: 400;
                 font-size: 16px;
                 line-height: 24px;
-            }
 
-            &:hover {
-                color: #F49383;
+                @media screen and (max-width: 500px) {
+                    font-size: 14px;
+                }
             }
         }
 
         .digg-logo_space{
             margin-right: 0;
             margin-right: 0.75rem;
+        }
+
+        .digg-logo_space__divider{
+            @media screen and (max-width: 500px) {
+                display: none;
+            }
         }
     }
 
