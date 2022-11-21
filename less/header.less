@@ -31,17 +31,58 @@ body > .container {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    min-height: 110px;
+    min-height: 72px;
     padding: 0 60px;
 
-    background-color: white;
+    background-color: #252525;
 
     @media (max-width: 767px) {
         padding: 10px;
     }
 
-    .digg-logo img {
-        width: 300px;
+    .digg-logo{
+        a{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            color: white;
+            font-family: 'Ubuntu';
+            font-style: normal;
+            font-weight: 500;
+            font-size: 20px;
+            line-height: 28px;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+
+            @media screen and (max-width: 500px) {
+                flex-direction: column;
+                align-items: flex-start;
+                font-size: 18px;
+            }
+
+            .digg-logo_community{
+                font-family: 'Ubuntu';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+
+                @media screen and (max-width: 500px) {
+                    font-size: 14px;
+                }
+            }
+        }
+
+        .digg-logo_space{
+            margin-right: 0;
+            margin-right: 0.75rem;
+        }
+
+        .digg-logo_space__divider{
+            @media screen and (max-width: 500px) {
+                display: none;
+            }
+        }
     }
 
     .digg-menu {
@@ -54,7 +95,7 @@ body > .container {
         }
 
         a {
-            color: #2b2a29;
+            color: white;
             font-size: 16px;
             margin-top: 0.5rem;
             padding-bottom: 2px;
@@ -75,15 +116,23 @@ body > .container {
             }
 
             &:hover {
-                border-color: #f7e4e1;
+                border-bottom: 2px solid #cd7a6e;
+            }
+        }
+
+        .digg-menu_back--link{
+            display: none;
+            @media (min-width: 767px) {
+                display: inline-block;
             }
         }
     }
 }
 
 .digg-divider {
-    height: 10px;
+    height: 0px;
     background-color: #e9be95;
+    display: none;
 }
 
 .digg-image {
